@@ -1,21 +1,4 @@
-/*!
 
-=========================================================
-* Paper Kit React - v1.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/paper-kit-react
-
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/paper-kit-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 // nodejs library that concatenates strings
 import classnames from "classnames";
@@ -30,6 +13,9 @@ import {
   Nav,
   Container
 } from "reactstrap";
+import ChangeHistoryIcon from "@material-ui/icons/ChangeHistory";
+// REACT ROUTER
+import { Link } from 'react-router-dom'
 
 function IndexNavbar() {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
@@ -69,9 +55,11 @@ function IndexNavbar() {
             data-placement="bottom"
             href="/index"
             target="_blank"
-            title="Coded by Creative Tim"
+            title="Return to home"
           >
-            Paper Kit React
+            <h5>
+              <ChangeHistoryIcon /> <strong>P/M</strong>
+            </h5>
           </NavbarBrand>
           <button
             aria-expanded={navbarCollapse}
@@ -134,25 +122,6 @@ function IndexNavbar() {
                 <i className="fa fa-github" />
                 <p className="d-lg-none">GitHub</p>
               </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                href="https://demos.creative-tim.com/paper-kit-react/#/documentation?ref=pkr-index-navbar"
-                target="_blank"
-              >
-                <i className="nc-icon nc-book-bookmark" /> Documentation
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <Button
-                className="btn-round"
-                color="danger"
-                href="#pablo"
-                target="_blank"
-                disabled
-              >
-                Upgrade to Pro
-              </Button>
             </NavItem>
           </Nav>
         </Collapse>

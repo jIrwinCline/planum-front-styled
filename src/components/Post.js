@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import DeletePost from './DeletePost';
 import PostDialog from './PostDialog';
 
+import planumIcon from '../assets/img/planumIcon.jpg'
+
 //MUI Stuff
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -54,7 +56,7 @@ export class Post extends Component {
         return (
           <Card className={classes.card}>
             <CardMedia
-              image={images}
+              image={planumIcon}
               title="Product Image"
               className={classes.image}
             />

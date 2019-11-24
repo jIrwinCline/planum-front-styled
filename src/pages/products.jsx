@@ -15,17 +15,17 @@ export class products extends Component {
     render() {
         const { posts, loading } = this.props.data;
         let recentPostsMarkup = !loading ? (
-            posts.map(post => <Post key={post.postId} post={post}/>)
-        ) : <p>...Loading</p>;
+          posts.map(post => (
+            <Grid item sm={4} xs={12}>
+              <Post key={post.postId} post={post} />
+            </Grid>
+          ))
+        ) : (
+          <p>...Loading</p>
+        );
         return (
         <Grid container spacing={10}>
-            <Grid item sm={8} xs={12}>
                 {recentPostsMarkup}
-            <p>Content</p>
-            </Grid>
-            <Grid item sm={4} xs={12}>
-            <p>Profile</p>
-            </Grid>
         </Grid>
         );
     }

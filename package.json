@@ -51,5 +51,6 @@
   },
   "optionalDependencies": {
     "typescript": "3.5.2"
-  }
+  },
+  "proxy": "https://us-central1-planum-magic.cloudfunctions.net/api"
 }

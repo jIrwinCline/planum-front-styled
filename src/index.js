@@ -10,6 +10,7 @@ import "assets/demo/demo.css";
 // pages
 import App from "views/App.js";
 // others
+import "./style.scss";
 
 ReactDOM.render(
   <App />,

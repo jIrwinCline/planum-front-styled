@@ -7,11 +7,11 @@ export default class Navbar2 extends Component {
           <div /*class="collapse navbar-collapse"*/ id="product-navbar">
 
             <ul class="product-nav-ul">
-              <li id="LI_13">
+              {/* <li id="LI_13">
                 <a href="/" id="A_14">
                   Home
                 </a>
-              </li>
+              </li> */}
               <li id="nav-item">
                 <a
                   href="https://radhippie.com/t/httpradhippiecomttops"
@@ -35,7 +35,7 @@ export default class Navbar2 extends Component {
                   Retreats
                 </a>
               </li>
-              <li id="nav-item">
+              <li id="nav-item tarot">
                 <a
                   href="https://radhippie.com/t/tapestries-groovy-stuff"
                   id="A_24"

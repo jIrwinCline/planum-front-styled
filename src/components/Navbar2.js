@@ -6,7 +6,7 @@ export default class Navbar2 extends Component {
         return (
           <div /*class="collapse navbar-collapse"*/ id="product-navbar">
 
-            <ul class="product-nav-ul">
+            <ul className="product-nav-ul">
               {/* <li id="LI_13">
                 <a href="/" id="A_14">
                   Home

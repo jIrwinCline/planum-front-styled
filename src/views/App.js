@@ -40,6 +40,8 @@ import SectionDownload from "views/index-sections/SectionDownload.js";
 //Router
 import { BrowserRouter as Router, Redirect, Switch, Route } from "react-router-dom";
 
+
+
 // const theme = createMuiTheme(themeFile);
 
 const token = localStorage.FBIdToken;

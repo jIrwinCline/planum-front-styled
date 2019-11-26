@@ -6,6 +6,34 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { getPosts } from '../redux/actions/dataActions'
+import Navbar2 from "../components/Navbar2";
+import logo from "../assets/img/planumLogo.jpg";
+import { withStyles } from "@material-ui/core/styles";
+const styles = {
+  card: {
+    position: "relative",
+    display: "flex",
+    marginBottom: 20
+  },
+  container: {
+    margin: '20px 80px 20px 80px' //fix later!!!!!!!!!!!!!
+  },
+  image: {
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto",
+    width: "12%"
+  },
+  content: {
+    padding: 25,
+    objectFit: "cover"
+  },
+  line: {
+    marginTop: 30,
+    marginBottom: 30,
+    borderTop: "1px solid lightgrey"
+  }
+};
 
 export class products extends Component {
     componentDidMount(){
@@ -13,6 +41,7 @@ export class products extends Component {
     }
 
     render() {
+        const { classes } = this.props;
         const { posts, loading } = this.props.data;
         let recentPostsMarkup = !loading ? (
           posts.map(post => (
@@ -24,9 +53,16 @@ export class products extends Component {
           <p>...Loading</p>
         );
         return (
-        <Grid container spacing={10}>
-                {recentPostsMarkup}
-        </Grid>
+          <>
+            <hr className={classes.line}/>
+            <img className={classes.image} src={logo} alt="main logo" />
+            <Navbar2 />
+            <div className={classes.container}>
+              <Grid container spacing={12}>
+                      {recentPostsMarkup}
+              </Grid>
+            </div>
+          </>
         );
     }
     }
@@ -40,4 +76,4 @@ export class products extends Component {
         data: state.data
     })
 
-export default connect(mapStateToProps, { getPosts })(products);
+export default connect(mapStateToProps, { getPosts })(withStyles(styles)(products));

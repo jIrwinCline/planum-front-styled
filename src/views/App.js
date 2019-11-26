@@ -17,7 +17,7 @@ import { logoutUser } from "../redux/actions/userActions";
 // core components
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import IndexHeader from "components/Headers/IndexHeader.js";
-import DemoFooter from "components/Footers/DemoFooter.js";
+import Footer from "components/Footers/Footer.js";
 import AuthRoute from "../util/AuthRoute";
 //pages
 import home from '../pages/home';
@@ -76,6 +76,7 @@ function App() {
               <AuthRoute path="/login" component={login} />
             </Switch>
           </div>
+          <Footer />
         </Router>
       </Provider>
     // </MuiThemeProvider>

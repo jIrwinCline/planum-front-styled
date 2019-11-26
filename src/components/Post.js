@@ -20,6 +20,9 @@ const styles = {
         position: 'relative',
         display: 'flex',
         marginBottom: 20,
+        padding: 13,
+        margin: 20,
+        height: 300
     },
     image: {
       minWidth: 200,

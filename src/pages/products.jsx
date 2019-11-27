@@ -50,11 +50,17 @@ export class products extends Component {
         const { classes } = this.props;
         const { posts, loading } = this.props.data;
         let recentPostsMarkup = !loading ? (
-          posts.map(post => (
-            <Grid item sm={4} xs={12}>
-              <Post key={post.postId} post={post} />
-            </Grid>
-          ))
+          posts.map(post => {
+            if (post.itemCategory == this.props.location.state.pageCategory) {
+              console.log("props: ", this.props);
+              console.log("category: ", this.props.location.state.pageCategory);
+              return (
+                <Grid item md={4} sm={6} xs={12} >
+                  <Post key={post.postId} post={post} />
+                </Grid>
+              );
+            }
+          })
         ) : (
           <p>...Loading</p>
         );

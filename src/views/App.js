@@ -23,6 +23,8 @@ import AuthRoute from "../util/AuthRoute";
 import home from '../pages/home';
 import login from '../pages/login';
 import products from '../pages/products';
+import retreats from "../pages/retreats";
+import tarot from "../pages/tarot";
 // index sections
 import SectionButtons from "views/index-sections/SectionButtons.js";
 import SectionNavbars from "views/index-sections/SectionNavbars.js";
@@ -65,20 +67,22 @@ function App() {
   });
   return (
     // <MuiThemeProvider theme={theme}>
-      <Provider store={store}>
-        <Router>
-          <IndexNavbar />
-          <IndexHeader />
-          <div className="main">
-            <Switch>
-              <Route exact path="/" component={home} />
-              <Route exact path="/products" component={products} />
-              <AuthRoute path="/login" component={login} />
-            </Switch>
-          </div>
-          <Footer />
-        </Router>
-      </Provider>
+    <Provider store={store}>
+      <Router>
+        <IndexNavbar />
+        <IndexHeader />
+        <div className="main">
+          <Switch>
+            <Route exact path="/" component={home} />
+            <Route exact path="/products" component={products} />
+            <Route exact path="/retreats" component={retreats} />
+            <Route exact path="/tarot" component={tarot} />
+            <AuthRoute path="/login" component={login} />
+          </Switch>
+        </div>
+        <Footer />
+      </Router>
+    </Provider>
     // </MuiThemeProvider>
   );
 }

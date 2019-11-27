@@ -72,9 +72,9 @@ const styles = {
     maxHeight: "80vh"
   },
   expandButton: {
-      position: 'absolute',
-      left: '90%',
-      bottom: '10%'
+      // position: 'absolute',
+      left: '80%',
+      bottom: '104px'
   },
   spinnerDiv: {
       textAlign: 'center',

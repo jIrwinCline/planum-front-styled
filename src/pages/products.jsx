@@ -16,7 +16,13 @@ const styles = {
     marginBottom: 20
   },
   container: {
-    margin: '20px 80px 20px 80px' //fix later!!!!!!!!!!!!!
+    left: '50%',
+    right: '50%',
+    maxWidth: '75%',
+    marginRight: '16%',
+    marginLeft: '16%',
+    marginTop: 40
+    // margin: '80px 200px 80px 200px' //fix later!!!!!!!!!!!!!
   },
   image: {
     display: "block",

@@ -34,23 +34,24 @@ const styles = {
     objectFit: "cover"
   },
   card: {
-    maxWidth: 380,
+    maxWidth: 310,
+    minWidth: 170,
     maxHeight: 323,
+    // minHeight: 323,
     margin: "auto",
     transition: "0.3s",
-    margin: 40,
+    margin: "20px",
     marginTop: 80
     // boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)",
     // "&:hover": {
     //   boxShadow: "0 16px 70px -12.125px rgba(0,0,0,0.3)"
     // }
-    
   },
   media: {
     paddingTop: "56.25%"
   },
   content: {
-    textAlign: "left",
+    textAlign: "left"
     // padding: muiBaseTheme.spacing.unit * 3
   },
   divider: {
@@ -61,6 +62,9 @@ const styles = {
   },
   subheading: {
     lineHeight: 1.8
+  },
+  priceBox: {
+    paddingTop: 10
   }
 };
 
@@ -103,14 +107,15 @@ export class Post extends Component {
               >
                 {name}
               </Typography>
-              <Typography
+              {/* <Typography
                 className={"MuiTypography--subheading"}
                 variant={"caption"}
-              >{info}</Typography>
+              >{info}</Typography> */}
               {deleteButton}
               <Divider className={classes.divider} light />
-              <br/>
+              <div className={classes.priceBox}>
               <Typography>{price}$</Typography>
+              </div>
               <PostDialog postId={postId} />
             </CardContent>
           </Card>

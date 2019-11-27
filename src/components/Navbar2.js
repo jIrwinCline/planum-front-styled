@@ -11,36 +11,37 @@ export default class Navbar2 extends Component {
                   Home
                 </a>
               </li> */}
-              <Link to={{
-                pathname: '/products',
-                state: {
-                pageCategory: 'painting'
-              }
-              }}>
+              <Link
+                to={{
+                  pathname: "/products",
+                  state: {
+                    pageCategory: "painting"
+                  }
+                }}
+              >
                 <li id="nav-item">Paintings</li>
               </Link>
-              <Link to={{
-                pathname: '/products',
-                state: {
-                pageCategory: 'jewelry'
-              }
-              }}>
+              <Link
+                to={{
+                  pathname: "/products",
+                  state: {
+                    pageCategory: "jewelry"
+                  }
+                }}
+              >
                 <li id="nav-item">Jewels</li>
               </Link>
-              <Link to={{
-                pathname: '/products',
-                state: {
-                pageCategory: 'cleansing'
-              }
-              }}>
+              <Link
+                to={{
+                  pathname: "/products",
+                  state: {
+                    pageCategory: "cleansing"
+                  }
+                }}
+              >
                 <li id="nav-item">Cleansing</li>
               </Link>
-              <Link to={{
-                pathname: '/products',
-                state: {
-                pageCategory: 'retreats'
-              }
-              }}>
+              <Link to="/retreats">
                 <li id="nav-item">Retreats</li>
               </Link>
               <Link to="/tarot">

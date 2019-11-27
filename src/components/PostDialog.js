@@ -3,6 +3,7 @@ import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import MyButton from "../util/MyButton";
 import { Link } from 'react-router-dom';
+import planumIcon from "../assets/img/planumIcon.jpg";
 //MUI Stuff
 import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
@@ -33,8 +34,9 @@ const styles = {
     textAlign: "center"
   },
   image: {
+    position: 'relative',
     margin: "20px auto 20px auto",
-    width: "50px"
+    width: "100%"
   },
   pageTitle: {
     margin: "10px auto 10px auto"
@@ -104,7 +106,7 @@ class PostDialog extends Component {
     ) : (
       <Grid container spacing={2}>
         <Grid item sm={4}>
-          <ChangeHistoryIcon />
+          <img src={planumIcon} alt='enlarged photo' className={classes.image}/>
         </Grid>
         <Grid item direction="column" sm={5}>
           <a href={link}>

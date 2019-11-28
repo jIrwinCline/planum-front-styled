@@ -82,6 +82,9 @@ const styles = {
       textAlign: 'center',
       marginTop: 50,
       marginBottom: 50
+  },
+  productContent: {
+      margin: 20
   }
 };
 
@@ -106,14 +109,13 @@ class PostDialog extends Component {
     ) : (
       <Grid container spacing={2}>
         <Grid item sm={4}>
-          <img src={planumIcon} alt='enlarged photo' className={classes.image}/>
+          <img
+            src={planumIcon}
+            alt="enlarged photo"
+            className={classes.image}
+          />
         </Grid>
-        <Grid item direction="column" sm={5}>
-          <a href={link}>
-            <Typography color="primary" variant="h5">
-              Buy Item
-            </Typography>
-          </a>
+        <Grid className={classes.productContent} item direction="column" sm={5}>
           <Typography color="primary" variant="h5">
             {name}
           </Typography>
@@ -124,6 +126,11 @@ class PostDialog extends Component {
           <Typography color="primary" variant="h5">
             {price}
           </Typography>
+          <a href={link}>
+            <Typography color="primary" variant="h5">
+              Buy Item
+            </Typography>
+          </a>
         </Grid>
         <Grid item sm={2}>
           <hr className={classes.invisibleSeperator} />

@@ -34,7 +34,7 @@ const styles = {
     textAlign: "center"
   },
   image: {
-    position: 'relative',
+    position: "relative",
     margin: "20px auto 20px auto",
     width: "100%"
   },
@@ -74,17 +74,53 @@ const styles = {
     maxHeight: "80vh"
   },
   expandButton: {
-      // position: 'absolute',
-      left: '80%',
-      bottom: '104px'
+    // position: 'absolute',
+    left: "80%",
+    bottom: "104px"
   },
   spinnerDiv: {
-      textAlign: 'center',
-      marginTop: 50,
-      marginBottom: 50
+    textAlign: "center",
+    marginTop: 50,
+    marginBottom: 50
   },
   productContent: {
-      margin: 20
+    margin: 40
+  },
+  nameStyle: {
+    // textAlign: "center",
+    // marginTop: 20,
+    marginBottom: 20,
+    // marginLeft: 100,
+    // fontFamily: "'PT Sans', sans-serif",
+    // fontFamily: "'PT Sans Narrow', sans-serif",
+    fontFamily: "'Lato', sans-serif"
+    // fontFamily: "'Roboto Condensed', sans-serif",
+    // fontWeight:
+  },
+  priceStyle: {
+    marginBottom: 50,
+    fontFamily: "'Lato', sans-serif",
+    color: 'grey'
+  },
+  infoStyle: {
+    fontFamily: "'Lato', sans-serif"
+  },
+  buttonStyle: {
+    backgroundColor: "lightblue",
+    width: 120,
+    textAlign: "center",
+    height: "38px"
+  },
+  buttonTextStyle: {
+    fontFamily: "'Lato', sans-serif",
+    // fontWeight: 'bold'
+    // marginTop: 50,
+    // marginBottom: 50
+    top: '20px'
+  },
+  boxStyle: {
+    backgroundColor: 'lightgrey',
+    height: 150
   }
 };
 
@@ -116,21 +152,30 @@ class PostDialog extends Component {
           />
         </Grid>
         <Grid className={classes.productContent} item direction="column" sm={5}>
-          <Typography color="primary" variant="h5">
+          <Typography className={classes.nameStyle} color="none" variant="h4">
             {name}
           </Typography>
-          <Typography color="primary" variant="h5">
+          <Typography className={classes.priceStyle} color="none" variant="h5">
+            $ {price}
+          </Typography>
+          <div className={classes.boxStyle}>
+            <button className={classes.buttonStyle}>
+              <a href={link} className={classes.buttonTextStyle}>
+                <Typography
+                  className={classes.buttonTextStyle}
+                  color="none"
+                  variant="h5"
+                >
+                  Buy Item
+                </Typography>
+              </a>
+            </button>
+          </div>
+          <br />
+          <br />
+          <Typography className={classes.infoStyle} color="none" variant="h5">
             {info}
           </Typography>
-          <br />
-          <Typography color="primary" variant="h5">
-            {price}
-          </Typography>
-          <a href={link}>
-            <Typography color="primary" variant="h5">
-              Buy Item
-            </Typography>
-          </a>
         </Grid>
         <Grid item sm={2}>
           <hr className={classes.invisibleSeperator} />

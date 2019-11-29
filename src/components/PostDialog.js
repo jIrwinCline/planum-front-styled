@@ -71,7 +71,8 @@ const styles = {
   },
   dialogPaper: {
     minHeight: "80vh",
-    maxHeight: "80vh"
+    maxHeight: "80vh",
+    paddingBottom: 'none',
   },
   expandButton: {
     // position: 'absolute',
@@ -84,7 +85,7 @@ const styles = {
     marginBottom: 50
   },
   productContent: {
-    margin: 40
+    marginTop: -40
   },
   nameStyle: {
     // textAlign: "center",
@@ -105,22 +106,29 @@ const styles = {
   infoStyle: {
     fontFamily: "'Lato', sans-serif"
   },
-  buttonStyle: {
-    backgroundColor: "lightblue",
-    width: 120,
-    textAlign: "center",
-    height: "38px"
-  },
+  // buttonStyle: {
+  //   backgroundColor: "darkgrey",
+  //   width: 120,
+  //   textAlign: "center",
+  //   height: "38px",
+    /*class="
+    button 
+    button--wayra 
+    button--border-thick 
+    button--text-upper 
+    button--size-s">*/
+  // },
   buttonTextStyle: {
     fontFamily: "'Lato', sans-serif",
     // fontWeight: 'bold'
     // marginTop: 50,
     // marginBottom: 50
+    color: 'black',
     top: '20px'
   },
   boxStyle: {
-    backgroundColor: 'lightgrey',
-    height: 150
+    // backgroundColor: 'lightgrey',
+    height: 50,
   }
 };
 
@@ -143,8 +151,8 @@ class PostDialog extends Component {
         <CircularProgress size={200} thickness={2} />
       </div>
     ) : (
-      <Grid container spacing={2}>
-        <Grid item sm={4}>
+      <Grid container spacing={6}>
+        <Grid className="image-side" item sm={5}>
           <img
             src={planumIcon}
             alt="enlarged photo"
@@ -152,34 +160,39 @@ class PostDialog extends Component {
           />
         </Grid>
         <Grid className={classes.productContent} item direction="column" sm={5}>
-          <Typography className={classes.nameStyle} color="none" variant="h4">
-            {name}
-          </Typography>
-          <Typography className={classes.priceStyle} color="none" variant="h5">
-            $ {price}
-          </Typography>
-          <div className={classes.boxStyle}>
-            <button className={classes.buttonStyle}>
-              <a href={link} className={classes.buttonTextStyle}>
-                <Typography
-                  className={classes.buttonTextStyle}
-                  color="none"
-                  variant="h5"
-                >
-                  Buy Item
-                </Typography>
-              </a>
-            </button>
+        <div class="wrapper">
+          <h1 class="separator text-right">{itemCategory}</h1>
+        </div>
+          <div className="content-box">
+            <Typography className={classes.nameStyle} color="none" variant="h4">
+              {name}
+            </Typography>
+            <Typography
+              className={classes.priceStyle}
+              color="none"
+              variant="h5"
+            >
+              $ {price}
+            </Typography>
+            <div className={classes.boxStyle}>
+              <button className="button button--wayra button--border-thick button--text-upper button--size-s">
+                <a href={link} className="button-text">
+                  <Typography color="inherit" variant="h5">
+                    Buy Item
+                  </Typography>
+                </a>
+              </button>
+            </div>
+            <br />
+            <br />
+            <Typography className={classes.infoStyle} color="none" variant="h5">
+              {info}
+            </Typography>
           </div>
-          <br />
-          <br />
-          <Typography className={classes.infoStyle} color="none" variant="h5">
-            {info}
-          </Typography>
         </Grid>
-        <Grid item sm={2}>
+        {/* <Grid item sm={2}>
           <hr className={classes.invisibleSeperator} />
-        </Grid>
+        </Grid> */}
       </Grid>
     );
     return (
@@ -187,7 +200,7 @@ class PostDialog extends Component {
             <MyButton onClick={this.handleOpen} tip="Expand Post" tipClassName={classes.expandButton}>
                 <UnfoldMore color="primary"/>
             </MyButton> 
-            <Dialog open={this.state.open}
+            <Dialog className='dialog-box' open={this.state.open}
               onClose={this.handleClose}
               classes={{paper: classes.dialogPaper }}
               fullscreen={true}

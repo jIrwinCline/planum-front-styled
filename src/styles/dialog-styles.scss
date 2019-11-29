@@ -1,0 +1,155 @@
+//---------Button Styles--------------//
+.button {
+    float: left;
+	min-width: 150px;
+	max-width: 250px;
+	display: block;
+	margin: 1em;
+	padding: 1em 2em;
+	border: none;
+	background: none;
+	color: inherit;
+	vertical-align: middle;
+	position: relative;
+	z-index: 1;
+	-webkit-backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+}
+.button--wayra {
+	overflow: hidden;
+	width: 245px;
+	-webkit-transition: border-color 0.3s, color 0.3s;
+	transition: border-color 0.3s, color 0.3s;
+	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+.button--wayra::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 150%;
+	height: 100%;
+	background: #37474f;
+	z-index: -1;
+	-webkit-transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
+	transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
+	-webkit-transform-origin: 0% 100%;
+	transform-origin: 0% 100%;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s, background-color 0.3s;
+	transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
+}
+.button--wayra:hover {
+	color: #fff;
+	border-color: black;
+}
+//
+.button--wayra:hover::before {
+	opacity: 1;
+	color: 'white';
+	// background-color: #3f51b5;
+	background-color: lightcyan;
+	-webkit-transform: rotate3d(0, 0, 1, 0deg);
+	transform: rotate3d(0, 0, 1, 0deg);
+	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+.button--border-thick {
+	border: 3px solid;
+}
+.button--text-upper {
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	
+}
+.button--size-s {
+	font-size: 8px;
+}
+// .button--wayra:hover.button-text {
+// 	color: white;
+// }
+.button-text {
+    font-family: 'Lato', sans-serif;
+    // fontWeight: 'bold'
+    // marginTop: 50,
+	// marginBottom: 50
+	color: black;
+    // color: white;
+    // top: 20px;
+  }
+  .button-text:hover {
+    font-family: 'Lato', sans-serif;
+    // fontWeight: 'bold'
+    // marginTop: 50,
+	// marginBottom: 50
+	// color: white;
+    // color: white;
+	// top: 20px;
+	text-decoration: none;
+  }
+  a h5:hover {
+	  color: black;
+	  text-decoration: none;
+  }
+  //------------Dialog Grid Styles--------------//
+  .image-side {
+}
+.MuiDialogContent-root {
+	background-image: url("./assets/img/dragonflyCut.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+  }
+
+.content-box {
+	background-color: rgb(231, 231, 231);
+	// padding: 20px;
+	border: solid 1px grey;
+	margin-top: 20px;
+	padding: 20px;
+	min-height: 60vh;
+}
+@media only screen and (max-width: 450px) {
+	.content-box {
+		max-width: 298px;
+		min-width: 298px;
+		// min-height: auto;
+	}
+}
+//Top Separator
+.wrapper {
+//   max-width: 400px;
+}
+
+h1 {
+  line-height: 1.5;
+}
+
+.separator {
+  position: relative;
+  
+  &.text-right {
+    text-align: right;
+    
+    &:after{
+      left: auto;
+      right: 0;
+    }
+  }
+  
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+  }
+  &:before {
+    width: 100%;
+    background: #C7C7C7;
+  }
+  
+  &:after {
+    width: 120px;
+    background: #F45D72;
+  }
+}

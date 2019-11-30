@@ -13,7 +13,7 @@ const styles = {
     display: "block",
     marginLeft: "auto",
     marginRight: "auto",
-    width: "12%"
+    width: "270px"
   },
   content: {
     padding: 25,

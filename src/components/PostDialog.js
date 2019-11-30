@@ -34,7 +34,7 @@ const styles = {
     textAlign: "center"
   },
   image: {
-    position: 'relative',
+    position: "relative",
     margin: "20px auto 20px auto",
     width: "100%"
   },
@@ -71,17 +71,64 @@ const styles = {
   },
   dialogPaper: {
     minHeight: "80vh",
-    maxHeight: "80vh"
+    maxHeight: "80vh",
+    paddingBottom: 'none',
   },
   expandButton: {
-      // position: 'absolute',
-      left: '80%',
-      bottom: '104px'
+    // position: 'absolute',
+    left: "80%",
+    bottom: "104px"
   },
   spinnerDiv: {
-      textAlign: 'center',
-      marginTop: 50,
-      marginBottom: 50
+    textAlign: "center",
+    marginTop: 50,
+    marginBottom: 50
+  },
+  productContent: {
+    marginTop: -40
+  },
+  nameStyle: {
+    // textAlign: "center",
+    // marginTop: 20,
+    marginBottom: 20,
+    // marginLeft: 100,
+    // fontFamily: "'PT Sans', sans-serif",
+    // fontFamily: "'PT Sans Narrow', sans-serif",
+    fontFamily: "'Lato', sans-serif"
+    // fontFamily: "'Roboto Condensed', sans-serif",
+    // fontWeight:
+  },
+  priceStyle: {
+    marginBottom: 50,
+    fontFamily: "'Lato', sans-serif",
+    color: 'grey'
+  },
+  infoStyle: {
+    fontFamily: "'Lato', sans-serif"
+  },
+  // buttonStyle: {
+  //   backgroundColor: "darkgrey",
+  //   width: 120,
+  //   textAlign: "center",
+  //   height: "38px",
+    /*class="
+    button 
+    button--wayra 
+    button--border-thick 
+    button--text-upper 
+    button--size-s">*/
+  // },
+  buttonTextStyle: {
+    fontFamily: "'Lato', sans-serif",
+    // fontWeight: 'bold'
+    // marginTop: 50,
+    // marginBottom: 50
+    color: 'black',
+    top: '20px'
+  },
+  boxStyle: {
+    // backgroundColor: 'lightgrey',
+    height: 50,
   }
 };
 
@@ -104,30 +151,48 @@ class PostDialog extends Component {
         <CircularProgress size={200} thickness={2} />
       </div>
     ) : (
-      <Grid container spacing={2}>
-        <Grid item sm={4}>
-          <img src={planumIcon} alt='enlarged photo' className={classes.image}/>
+      <Grid container spacing={6}>
+        <Grid className="image-side" item sm={5}>
+          <img
+            src={planumIcon}
+            alt="enlarged photo"
+            className={classes.image}
+          />
         </Grid>
-        <Grid item direction="column" sm={5}>
-          <a href={link}>
-            <Typography color="primary" variant="h5">
-              Buy Item
+        <Grid className={classes.productContent} item direction="column" sm={5}>
+        <div class="wrapper">
+          <h1 class="separator text-right">{itemCategory}</h1>
+        </div>
+          <div className="content-box">
+            <Typography className={classes.nameStyle} color="none" variant="h4">
+              {name}
             </Typography>
-          </a>
-          <Typography color="primary" variant="h5">
-            {name}
-          </Typography>
-          <Typography color="primary" variant="h5">
-            {info}
-          </Typography>
-          <br />
-          <Typography color="primary" variant="h5">
-            {price}
-          </Typography>
+            <Typography
+              className={classes.priceStyle}
+              color="none"
+              variant="h5"
+            >
+              $ {price}
+            </Typography>
+            <div className={classes.boxStyle}>
+              <button className="button button--wayra button--border-thick button--text-upper button--size-s">
+                <a href={link} className="button-text">
+                  <Typography color="inherit" variant="h5">
+                    Buy Item
+                  </Typography>
+                </a>
+              </button>
+            </div>
+            <br />
+            <br />
+            <Typography className={classes.infoStyle} color="none" variant="h5">
+              {info}
+            </Typography>
+          </div>
         </Grid>
-        <Grid item sm={2}>
+        {/* <Grid item sm={2}>
           <hr className={classes.invisibleSeperator} />
-        </Grid>
+        </Grid> */}
       </Grid>
     );
     return (
@@ -135,7 +200,7 @@ class PostDialog extends Component {
             <MyButton onClick={this.handleOpen} tip="Expand Post" tipClassName={classes.expandButton}>
                 <UnfoldMore color="primary"/>
             </MyButton> 
-            <Dialog open={this.state.open}
+            <Dialog className='dialog-box' open={this.state.open}
               onClose={this.handleClose}
               classes={{paper: classes.dialogPaper }}
               fullscreen={true}

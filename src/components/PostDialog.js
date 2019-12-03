@@ -66,7 +66,7 @@ const styles = {
   },
   closeButton: {
     position: "absolute",
-    left: "91%",
+    left: "88%",
     top: "6%"
   },
   dialogPaper: {
@@ -129,6 +129,9 @@ const styles = {
   boxStyle: {
     // backgroundColor: 'lightgrey',
     height: 50,
+  },
+  gridContainer: {
+    padding: '30px 0px 0px 30px',
   }
 };
 
@@ -151,7 +154,7 @@ class PostDialog extends Component {
         <CircularProgress size={200} thickness={2} />
       </div>
     ) : (
-      <Grid container spacing={6}>
+      <Grid className='grid-container' container spacing={10}>
         <Grid className="image-side" item sm={5}>
           <img
             src={planumIcon}
@@ -159,7 +162,7 @@ class PostDialog extends Component {
             className={classes.image}
           />
         </Grid>
-        <Grid className={classes.productContent} item direction="column" sm={5}>
+        <Grid className='product-content' item direction="column" sm={5}>
         <div class="wrapper">
           <h1 class="separator text-right">{itemCategory}</h1>
         </div>

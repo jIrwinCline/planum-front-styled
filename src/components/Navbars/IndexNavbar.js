@@ -51,6 +51,7 @@ function IndexNavbar(props) {
       window.removeEventListener("scroll", updateNavbarColor);
     };
   });
+  const postButton = authenticated ? <PostProduct /> : null;
   return (
     <Navbar className={classnames("fixed-top", navbarColor)} expand="lg">
       <Container>
@@ -65,7 +66,7 @@ function IndexNavbar(props) {
               <ChangeHistoryIcon /> <strong>P/M</strong>
             </h5>
           </NavbarBrand>
-          <PostProduct />
+          { postButton }
           <button
             aria-expanded={navbarCollapse}
             className={classnames("navbar-toggler navbar-toggler", {

@@ -94,11 +94,17 @@
   //------------Dialog Grid Styles--------------//
   .image-side {
 }
-.MuiDialogContent-root {
-	background-image: url("./assets/img/dragonflyCut.jpg");
+// .MuiDialogContent-root {
+// 	background-image: url("./assets/img/dragonflyCut.jpg");
+// 	background-size: contain;
+// 	background-repeat: no-repeat;
+//   }
+
+.dialog-box {
+	background-image: url("./assets/img/dragonfly.jpg");
 	background-size: contain;
-	background-repeat: no-repeat;
-  }
+	// background-repeat: no-repeat;
+}
 
 .content-box {
 	background-color: rgb(231, 231, 231);

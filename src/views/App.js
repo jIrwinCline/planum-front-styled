@@ -25,6 +25,8 @@ import login from '../pages/login';
 import products from '../pages/products';
 import retreats from "../pages/retreats";
 import tarot from "../pages/tarot";
+
+import ProfilePage from "views/examples/ProfilePage.js";
 // index sections
 import SectionButtons from "views/index-sections/SectionButtons.js";
 import SectionNavbars from "views/index-sections/SectionNavbars.js";
@@ -77,6 +79,10 @@ function App() {
             <Route exact path="/products" component={products} />
             <Route exact path="/retreats" component={retreats} />
             <Route exact path="/tarot" component={tarot} />
+            <Route
+              path="/profile-page"
+              render={props => <ProfilePage {...props} />}
+            />
             <AuthRoute path="/login" component={login} />
           </Switch>
         </div>

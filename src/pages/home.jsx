@@ -84,8 +84,18 @@ class home extends Component {
                 <br />
                 <br />
                 <ul className="product-nav-ul">
-                <li>About Planum Magic</li></ul>
+                  <li>About Planum Magic</li>
+                </ul>
               </div>
+              <p>Meet the Artist!</p>
+              <Button
+                className="btn-outline-neutral btn-round"
+                color="default"
+                href="/profile-page"
+                target="_blank"
+              >
+                Profile Page
+              </Button>
             </div>
           </>
         );

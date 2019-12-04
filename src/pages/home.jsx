@@ -4,10 +4,17 @@ import logo from '../assets/img/planumLogo.jpg'
 import { withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Post from "../components/Post";
+import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 
 import { connect } from 'react-redux';
 import { getPosts } from '../redux/actions/dataActions'
 import PropTypes from 'prop-types';
+
+import { Button /*, Container, Row, Col*/ } from "reactstrap";
+
+import IndexNavbar from "components/Navbars/IndexNavbar.js";
+import IndexHeader from "components/Headers/IndexHeader.js";
+import SectionCarousel from "views/index-sections/SectionCarousel.js";
 
 const styles = {
   card: {
@@ -21,7 +28,7 @@ const styles = {
     maxWidth: "75%",
     marginRight: "16%",
     marginLeft: "16%",
-    marginTop: 40
+    marginTop: -30
     // margin: '80px 200px 80px 200px' //fix later!!!!!!!!!!!!!
   },
   image: {
@@ -69,23 +76,43 @@ class home extends Component {
         );
         return (
           <>
+            <IndexNavbar />
+            <IndexHeader />
             <hr className={classes.line} />
             <img className={classes.image} src={logo} alt="main logo" />
             <Navbar2 />
+            <SectionCarousel />
+            <div className="center-stuff">
+              <div className="brand-info">
+                <h3>
+                  <strong>
+                    PLANUM MAGIC IS YOUR HUB FOR ALL THINGS SPIRITUAL
+                  </strong>
+                </h3>
+                <h4>
+                  Wall Art, Jewlery, Crystals, Cleansing, Spiritual Retreats,
+                  Tarot Readings, and more
+                </h4>
+              </div>
+            </div>
             <div className={classes.center}>
+              <br />
               <h1>Featured Content</h1>
+              <br />
+              <KeyboardArrowDownIcon fontSize="large" />
             </div>
             <div className={classes.container}>
               <Grid container spacing={12}>
                 {recentPostsMarkup}
               </Grid>
-              <div /*class="collapse navbar-collapse"*/ id="product-navbar">
-                <br />
-                <br />
-                <br />
-                <ul className="product-nav-ul">
-                  <li>About Planum Magic</li>
-                </ul>
+              <div class="section-split">
+                
+                <div className={classes.center}>
+          
+                  <h1>About Planum Magic</h1>
+                  <br />
+                  {/* <KeyboardArrowDownIcon fontSize="large" /> */}
+                </div>
               </div>
               <p>Meet the Artist!</p>
               <Button

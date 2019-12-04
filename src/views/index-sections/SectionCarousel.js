@@ -18,18 +18,18 @@ import {
 const items = [
   {
     src: require("assets/img/soroush-karimi.jpg"),
-    altText: "Somewhere",
-    caption: "Somewhere"
+    altText: "Spiritual Merchandise",
+    caption: "Spiritual Merchandise"
   },
   {
     src: require("assets/img/federico-beccari.jpg"),
-    altText: "Somewhere else",
-    caption: "Somewhere else"
+    altText: "Artistic Retreats",
+    caption: "Artistic Retreats"
   },
   {
     src: require("assets/img/joshua-stannard.jpg"),
-    altText: "Here it is",
-    caption: "Here it is"
+    altText: "Tarot Readings",
+    caption: "Tarot Readings"
   }
 ];
 
@@ -58,7 +58,11 @@ function SectionCarousel() {
   };
   return (
     <>
-      <div className="section pt-o" id="carousel">
+      <div
+        style={{ backgroundColor: "#F5F5F5" }}
+        className="pt-o"
+        id="carousel"
+      >
         <Container>
           <Row>
             <Col className="ml-auto mr-auto" md="8">

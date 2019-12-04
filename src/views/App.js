@@ -71,8 +71,6 @@ function App() {
     // <MuiThemeProvider theme={theme}>
     <Provider store={store}>
       <Router>
-        <IndexNavbar />
-        <IndexHeader />
         <div className="main">
           <Switch>
             <Route exact path="/" component={home} />
@@ -80,7 +78,7 @@ function App() {
             <Route exact path="/retreats" component={retreats} />
             <Route exact path="/tarot" component={tarot} />
             <Route
-              path="/profile-page"
+              path="/artist"
               render={props => <ProfilePage {...props} />}
             />
             <AuthRoute path="/login" component={login} />

@@ -19,8 +19,9 @@ import {
 
 // core components
 // import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
+import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
-import DemoFooter from "components/Footers/DemoFooter.js";
+import Footer from "components/Footers/Footer.js";
 
 function ProfilePage() {
   const [activeTab, setActiveTab] = React.useState("1");
@@ -40,7 +41,7 @@ function ProfilePage() {
   });
   return (
     <>
-      {/* <ExamplesNavbar /> */}
+      <IndexNavbar />
       <ProfilePageHeader />
       <div className="section profile-content">
         <Container>
@@ -49,59 +50,34 @@ function ProfilePage() {
               <img
                 alt="..."
                 className="img-circle img-no-padding img-responsive"
-                src={require("assets/img/faces/joe-gardner-2.jpg")}
+                // Add profile photo
+                // src={require("assets/img/faces/joe-gardner-2.jpg")}
               />
             </div>
             <div className="name">
               <h4 className="title">
-                Jane Faker <br />
+                Laci Adelle <br />
               </h4>
-              <h6 className="description">Music Producer</h6>
+              <h6 className="description">Artist and Entreprenuer</h6>
             </div>
           </div>
           <Row>
             <Col className="ml-auto mr-auto text-center" md="6">
               <p>
-                An artist of considerable range, Jane Faker — the name taken by
-                Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs
-                and records all of his own music, giving it a warm, intimate
-                feel with a solid groove structure.
+                lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem
+                ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem
+                ipsumlorem ipsumlorem ipsumlorem ipsum
               </p>
               <br />
-              <Button className="btn-round" color="default" outline>
+              {/* <Button className="btn-round" color="default" outline>
                 <i className="fa fa-cog" /> Settings
-              </Button>
+              </Button> */}
             </Col>
           </Row>
           <br />
-          <div className="nav-tabs-navigation">
-            <div className="nav-tabs-wrapper">
-              <Nav role="tablist" tabs>
-                <NavItem>
-                  <NavLink
-                    className={activeTab === "1" ? "active" : ""}
-                    onClick={() => {
-                      toggle("1");
-                    }}
-                  >
-                    Follows
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink
-                    className={activeTab === "2" ? "active" : ""}
-                    onClick={() => {
-                      toggle("2");
-                    }}
-                  >
-                    Following
-                  </NavLink>
-                </NavItem>
-              </Nav>
-            </div>
-          </div>
+          
           {/* Tab panes */}
-          <TabContent className="following" activeTab={activeTab}>
+          {/* <TabContent className="following" activeTab={activeTab}>
             <TabPane tabId="1" id="follows">
               <Row>
                 <Col className="ml-auto mr-auto" md="6">
@@ -171,10 +147,9 @@ function ProfilePage() {
                 Find artists
               </Button>
             </TabPane>
-          </TabContent>
+          </TabContent> */}
         </Container>
       </div>
-      <DemoFooter />
     </>
   );
 }

@@ -83,7 +83,8 @@ class home extends Component {
                 <br />
                 <br />
                 <br />
-                <ul className="product-nav-ul"></ul>
+                <ul className="product-nav-ul">
+                <li>About Planum Magic</li></ul>
               </div>
             </div>
           </>

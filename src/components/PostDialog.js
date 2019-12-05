@@ -12,9 +12,11 @@ import DeleteOutline from "@material-ui/icons/DeleteOutline";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Grid from '@material-ui/core/grid';
 import Typography from '@material-ui/core/Typography'
+import IconButton from '@material-ui/core/IconButton'
 //ICONS
 import CloseIcon from "@material-ui/icons/Close";
 import UnfoldMore from "@material-ui/icons/UnfoldMore";
+import EditIcon from "@material-ui/icons/Edit";
 // import AppIcon from "../images/planumIcon.png";
 import ChangeHistoryIcon from "@material-ui/icons/ChangeHistory";
 //REDUX
@@ -139,6 +141,14 @@ class PostDialog extends Component {
   state = {
     open: false
   };
+  handleImageUpload = (event) => {
+    const image = event.target.files[0];
+
+  }
+  handleEditPicture = () => {
+    const fileInput = document.getElementById('imageInput')
+    fileInput.click();
+  }
   handleOpen = () => {
     this.setState({ open: true });
     this.props.getPost(this.props.postId);
@@ -210,6 +220,10 @@ class PostDialog extends Component {
               fullWidth
               maxWidth="lg"
             >
+              <input type='file' id="imageInput" onChange={this.handleImageUpload} hidden="hidden" />
+              <IconButton onClick={this.handleEditPicture} className="button">
+                <EditIcon color="primary"/>
+              </IconButton>
               <MyButton
                 tip="close"
                 onClick={this.handleClose}

@@ -50,6 +50,12 @@ const styles = {
     marginTop: 20,
     postition: "relative"
   },
+  editButton: {
+    position: "absolute",
+    left: "88%",
+    top: "15%",
+    zIndex: 10
+  },
   customError: {
     color: "red",
     fontSixe: "0.8rem",
@@ -69,12 +75,13 @@ const styles = {
   closeButton: {
     position: "absolute",
     left: "88%",
-    top: "6%"
+    top: "6%",
+    zIndex: 10
   },
   dialogPaper: {
     minHeight: "80vh",
     maxHeight: "80vh",
-    paddingBottom: 'none',
+    paddingBottom: "none"
   },
   expandButton: {
     // position: 'absolute',
@@ -103,7 +110,7 @@ const styles = {
   priceStyle: {
     marginBottom: 50,
     fontFamily: "'Lato', sans-serif",
-    color: 'grey'
+    color: "grey"
   },
   infoStyle: {
     fontFamily: "'Lato', sans-serif"
@@ -113,7 +120,7 @@ const styles = {
   //   width: 120,
   //   textAlign: "center",
   //   height: "38px",
-    /*class="
+  /*class="
     button 
     button--wayra 
     button--border-thick 
@@ -125,15 +132,15 @@ const styles = {
     // fontWeight: 'bold'
     // marginTop: 50,
     // marginBottom: 50
-    color: 'black',
-    top: '20px'
+    color: "black",
+    top: "20px"
   },
   boxStyle: {
     // backgroundColor: 'lightgrey',
-    height: 50,
+    height: 50
   },
   gridContainer: {
-    padding: '30px 0px 0px 30px',
+    padding: "30px 0px 0px 30px"
   }
 };
 
@@ -221,7 +228,7 @@ class PostDialog extends Component {
               maxWidth="lg"
             >
               <input type='file' id="imageInput" onChange={this.handleImageUpload} hidden="hidden" />
-              <IconButton onClick={this.handleEditPicture} className="button">
+              <IconButton onClick={this.handleEditPicture} className={classes.editButton}>
                 <EditIcon color="primary"/>
               </IconButton>
               <MyButton

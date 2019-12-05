@@ -13,6 +13,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Grid from '@material-ui/core/grid';
 import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
+import Tooltip from "@material-ui/core/Tooltip";
 //ICONS
 import CloseIcon from "@material-ui/icons/Close";
 import UnfoldMore from "@material-ui/icons/UnfoldMore";
@@ -150,7 +151,9 @@ class PostDialog extends Component {
   };
   handleImageUpload = (event) => {
     const image = event.target.files[0];
-
+    const formData = new FormData();
+    formData.append('image', image, image.name);
+    this.props.uploadImage(formData);
   }
   handleEditPicture = () => {
     const fileInput = document.getElementById('imageInput')
@@ -216,34 +219,50 @@ class PostDialog extends Component {
       </Grid>
     );
     return (
-        <Fragment>
-            <MyButton onClick={this.handleOpen} tip="Expand Post" tipClassName={classes.expandButton}>
-                <UnfoldMore color="primary"/>
-            </MyButton> 
-            <Dialog className='dialog-box' open={this.state.open}
-              onClose={this.handleClose}
-              classes={{paper: classes.dialogPaper }}
-              fullscreen={true}
-              fullWidth
-              maxWidth="lg"
+      <Fragment>
+        <MyButton
+          onClick={this.handleOpen}
+          tip="Expand Post"
+          tipClassName={classes.expandButton}
+        >
+          <UnfoldMore color="primary" />
+        </MyButton>
+        <Dialog
+          className="dialog-box"
+          open={this.state.open}
+          onClose={this.handleClose}
+          classes={{ paper: classes.dialogPaper }}
+          fullscreen={true}
+          fullWidth
+          maxWidth="lg"
+        >
+          <input
+            type="file"
+            id="imageInput"
+            onChange={this.handleImageUpload}
+            hidden="hidden"
+          />
+          <Tooltip title="Upload Picture" placement="top">
+            <IconButton
+              onClick={this.handleEditPicture}
+              className={classes.editButton}
             >
-              <input type='file' id="imageInput" onChange={this.handleImageUpload} hidden="hidden" />
-              <IconButton onClick={this.handleEditPicture} className={classes.editButton}>
-                <EditIcon color="primary"/>
-              </IconButton>
-              <MyButton
-                tip="close"
-                onClick={this.handleClose}
-                tipClassName={classes.closeButton}
-              >
-                <CloseIcon />
-              </MyButton>
-              <DialogContent className={classes.dialogContent}>
-                {dialogMarkup}
-              </DialogContent>
-            </Dialog>
-        </Fragment>
-    )
+              <EditIcon color="primary" />
+            </IconButton>
+          </Tooltip>
+          <MyButton
+            tip="close"
+            onClick={this.handleClose}
+            tipClassName={classes.closeButton}
+          >
+            <CloseIcon />
+          </MyButton>
+          <DialogContent className={classes.dialogContent}>
+            {dialogMarkup}
+          </DialogContent>
+        </Dialog>
+      </Fragment>
+    );
   }
 }
 

@@ -95,7 +95,7 @@ export class Post extends Component {
           <Card className={classes.card}>
             <CardMedia
               className={classes.media}
-              image={planumIcon
+              image={images
                 // "https://image.freepik.com/free-photo/river-foggy-mountains-landscape_1204-511.jpg"
               }
             />

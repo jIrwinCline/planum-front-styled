@@ -22,7 +22,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import ChangeHistoryIcon from "@material-ui/icons/ChangeHistory";
 //REDUX
 import { connect } from 'react-redux'
-import { getPost } from '../redux/actions/dataActions';
+import { getPost, uploadImage } from '../redux/actions/dataActions';
 
 const styles = {
   invisibleSeperator: {
@@ -153,7 +153,9 @@ class PostDialog extends Component {
     const image = event.target.files[0];
     const formData = new FormData();
     formData.append('image', image, image.name);
-    this.props.uploadImage(formData);
+    this.props.uploadImage(formData, this.props.postId);
+    
+    // this.setState({ open: false });
   }
   handleEditPicture = () => {
     const fileInput = document.getElementById('imageInput')
@@ -167,7 +169,39 @@ class PostDialog extends Component {
     this.setState({ open: false });
   };
   render(){
-      const { classes, post: { postId, name, images, itemCategory, link, info, price, available, highend }, UI: { loading }} = this.props;
+      const {
+        classes,
+        post: {
+          postId,
+          name,
+          images,
+          itemCategory,
+          link,
+          info,
+          price,
+          available,
+          highend
+        },
+        UI: { loading }
+      } = this.props;
+
+      // const {
+      //   classes,
+      //   post: {
+      //     name,
+      //     createdAt,
+      //     images,
+      //     itemCategory,
+      //     postId,
+      //     link,
+      //     info,
+      //     price,
+      //     available,
+      //     highEnd
+      //   },
+      //   UI: { loading },
+      //   user: { authenticated }
+      // } = this.props;
 
     const dialogMarkup = loading ? (
       <div className={classes.spinnerDiv}>
@@ -177,7 +211,7 @@ class PostDialog extends Component {
       <Grid className='grid-container' container spacing={10}>
         <Grid className="image-side" item sm={5}>
           <img
-            src={planumIcon}
+            src={images}
             alt="enlarged photo"
             className={classes.image}
           />
@@ -271,7 +305,8 @@ PostDialog.propTypes = {
   getPost: PropTypes.func.isRequired,
   postId: PropTypes.string.isRequired,
   post: PropTypes.object.isRequired,
-  UI: PropTypes.object.isRequired
+  UI: PropTypes.object.isRequired,
+  uploadImage: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -280,8 +315,9 @@ const mapStateToProps = state => ({
 })
 
 const mapActionsToProps = {
-    getPost
-}
+    getPost,
+    uploadImage
+};
 
 export default connect(
   mapStateToProps,

@@ -150,11 +150,18 @@ class PostDialog extends Component {
     open: false
   };
   handleImageUpload = (event) => {
-    const image = event.target.files[0];
-    const formData = new FormData();
-    formData.append('image', image, image.name);
-    this.props.uploadImage(formData, this.props.postId);
-    
+      const images = event.target.files;
+      const formDatas = [];
+      images.forEach(image => {
+          const formData = new FormData();
+          formData.append('image', image, image.name);
+          formDatas.push(formData);
+        }
+        this.props.uploadImage(formDatas, this.props.postId);
+      )
+    // for(i=0; i < images.length; i++){
+
+    // }
     // this.setState({ open: false });
   }
   handleEditPicture = () => {
@@ -275,6 +282,7 @@ class PostDialog extends Component {
             id="imageInput"
             onChange={this.handleImageUpload}
             hidden="hidden"
+            multiple
           />
           <Tooltip title="Upload Picture" placement="top">
             <IconButton

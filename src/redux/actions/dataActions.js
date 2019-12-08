@@ -62,10 +62,12 @@ export const postProduct = (newPost) => (dispatch) => {
         })
 }
 //Upload IMage
-export const uploadImage = (formData, postId) => (dispatch) => {
+export const uploadImage = (formDatas, postId) => (dispatch) => {
     dispatch({ type: LOADING_UI })
     //for loop through a form data array?
-    axios.post(`/post/${postId}/image`, formData)
+    formDatas.forEach(formData => {
+        axios.post(`/post/${postId}/image`, formData)
+    })
         .then(() => {
             dispatch(getPost(postId))
             // dispatch({ type: STOP_LOADING_UI });

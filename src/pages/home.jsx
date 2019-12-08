@@ -118,7 +118,7 @@ class home extends Component {
               <Button
                 className="btn-outline-neutral btn-round"
                 color="default"
-                href="/profile-page"
+                href="/artist"
                 target="_blank"
               >
                 Profile Page

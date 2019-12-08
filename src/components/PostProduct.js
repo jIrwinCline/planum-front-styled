@@ -93,7 +93,8 @@ class PostProduct extends Component {
           price: this.state.price,
           itemCategory: this.state.itemCategory,
           available: this.state.available,
-          highEnd: this.state.highEnd
+          highEnd: this.state.highEnd,
+          featured: this.state.featured
         });
     }
     render(){
@@ -218,6 +219,19 @@ class PostProduct extends Component {
                     multiline
                     rows="3"
                     placeholder="false"
+                    error={errors.body ? true : false}
+                    helperText={errors.body}
+                    className={classes.textFields}
+                    onChange={this.handleChange}
+                    fullWidth
+                  />
+                  <TextField
+                    name="featured"
+                    type="text"
+                    lable="featured? true/false"
+                    multiline
+                    rows="3"
+                    placeholder="featured? true/false"
                     error={errors.body ? true : false}
                     helperText={errors.body}
                     className={classes.textFields}

@@ -36,7 +36,7 @@ const styles = {
   card: {
     maxWidth: 310,
     minWidth: 170,
-    maxHeight: 313,
+    // maxHeight: 313,
     // minHeight: 323,
     margin: "auto",
     transition: "0.3s",
@@ -48,7 +48,7 @@ const styles = {
     // }
   },
   media: {
-    paddingTop: "56.25%"
+    paddingTop: "56.25%",
   },
   content: {
     textAlign: "left"

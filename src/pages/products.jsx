@@ -4,6 +4,9 @@ import Grid from '@material-ui/core/Grid';
 import Post from '../components/Post';
 import PropTypes from 'prop-types';
 
+import IndexNavbar from "components/Navbars/IndexNavbar.js";
+import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
+
 import { connect } from 'react-redux';
 import { getPosts } from '../redux/actions/dataActions'
 import Navbar2 from "../components/Navbar2";
@@ -66,12 +69,14 @@ export class products extends Component {
         );
         return (
           <>
-            <hr className={classes.line}/>
+            <IndexNavbar />
+            <ProfilePageHeader />
+            <hr className={classes.line} />
             <img className={classes.image} src={logo} alt="main logo" />
             <Navbar2 />
             <div className={classes.container}>
               <Grid container spacing={12}>
-                      {recentPostsMarkup}
+                {recentPostsMarkup}
               </Grid>
             </div>
           </>

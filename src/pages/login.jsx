@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
+
+import IndexNavbar from "components/Navbars/IndexNavbar.js";
+import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
 //ICONS
 import ChangeHistoryIcon from "@material-ui/icons/ChangeHistory";
 
@@ -79,6 +82,9 @@ export class login extends Component {
     const { classes, loading } = this.props;
     const { errors } = this.state;
     return (
+      <>
+      <IndexNavbar />
+      <ProfilePageHeader />
       <Grid container className={classes.form}>
         <Grid item sm />
         <Grid item sm>
@@ -131,6 +137,7 @@ export class login extends Component {
         </Grid>
         <Grid item sm />
       </Grid>
+    </>
     );
   }
 }

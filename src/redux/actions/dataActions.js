@@ -61,6 +61,18 @@ export const postProduct = (newPost) => (dispatch) => {
             })
         })
 }
+//Upload IMage
+export const uploadImage = (formData, postId) => (dispatch) => {
+    dispatch({ type: LOADING_UI })
+    //for loop through a form data array?
+    axios.post(`/post/${postId}/image`, formData)
+        .then(() => {
+            dispatch(getPost(postId))
+            // dispatch({ type: STOP_LOADING_UI });
+        })
+        .catch(err => console.log(err));
+}
+
 //DELETE PRODUCT
 export const deletePost = (postId) => (dispatch) => {
     axios.delete(`/post/${postId}`)

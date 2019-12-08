@@ -13,6 +13,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Grid from '@material-ui/core/grid';
 import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
+import Tooltip from "@material-ui/core/Tooltip";
 //ICONS
 import CloseIcon from "@material-ui/icons/Close";
 import UnfoldMore from "@material-ui/icons/UnfoldMore";
@@ -21,7 +22,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import ChangeHistoryIcon from "@material-ui/icons/ChangeHistory";
 //REDUX
 import { connect } from 'react-redux'
-import { getPost } from '../redux/actions/dataActions';
+import { getPost, uploadImage } from '../redux/actions/dataActions';
 
 const styles = {
   invisibleSeperator: {
@@ -150,7 +151,11 @@ class PostDialog extends Component {
   };
   handleImageUpload = (event) => {
     const image = event.target.files[0];
-
+    const formData = new FormData();
+    formData.append('image', image, image.name);
+    this.props.uploadImage(formData, this.props.postId);
+    
+    // this.setState({ open: false });
   }
   handleEditPicture = () => {
     const fileInput = document.getElementById('imageInput')
@@ -164,7 +169,39 @@ class PostDialog extends Component {
     this.setState({ open: false });
   };
   render(){
-      const { classes, post: { postId, name, images, itemCategory, link, info, price, available, highend }, UI: { loading }} = this.props;
+      const {
+        classes,
+        post: {
+          postId,
+          name,
+          images,
+          itemCategory,
+          link,
+          info,
+          price,
+          available,
+          highend
+        },
+        UI: { loading }
+      } = this.props;
+
+      // const {
+      //   classes,
+      //   post: {
+      //     name,
+      //     createdAt,
+      //     images,
+      //     itemCategory,
+      //     postId,
+      //     link,
+      //     info,
+      //     price,
+      //     available,
+      //     highEnd
+      //   },
+      //   UI: { loading },
+      //   user: { authenticated }
+      // } = this.props;
 
     const dialogMarkup = loading ? (
       <div className={classes.spinnerDiv}>
@@ -174,7 +211,7 @@ class PostDialog extends Component {
       <Grid className='grid-container' container spacing={10}>
         <Grid className="image-side" item sm={5}>
           <img
-            src={planumIcon}
+            src={images}
             alt="enlarged photo"
             className={classes.image}
           />
@@ -216,34 +253,50 @@ class PostDialog extends Component {
       </Grid>
     );
     return (
-        <Fragment>
-            <MyButton onClick={this.handleOpen} tip="Expand Post" tipClassName={classes.expandButton}>
-                <UnfoldMore color="primary"/>
-            </MyButton> 
-            <Dialog className='dialog-box' open={this.state.open}
-              onClose={this.handleClose}
-              classes={{paper: classes.dialogPaper }}
-              fullscreen={true}
-              fullWidth
-              maxWidth="lg"
+      <Fragment>
+        <MyButton
+          onClick={this.handleOpen}
+          tip="Expand Post"
+          tipClassName={classes.expandButton}
+        >
+          <UnfoldMore color="primary" />
+        </MyButton>
+        <Dialog
+          className="dialog-box"
+          open={this.state.open}
+          onClose={this.handleClose}
+          classes={{ paper: classes.dialogPaper }}
+          fullscreen={true}
+          fullWidth
+          maxWidth="lg"
+        >
+          <input
+            type="file"
+            id="imageInput"
+            onChange={this.handleImageUpload}
+            hidden="hidden"
+          />
+          <Tooltip title="Upload Picture" placement="top">
+            <IconButton
+              onClick={this.handleEditPicture}
+              className={classes.editButton}
             >
-              <input type='file' id="imageInput" onChange={this.handleImageUpload} hidden="hidden" />
-              <IconButton onClick={this.handleEditPicture} className={classes.editButton}>
-                <EditIcon color="primary"/>
-              </IconButton>
-              <MyButton
-                tip="close"
-                onClick={this.handleClose}
-                tipClassName={classes.closeButton}
-              >
-                <CloseIcon />
-              </MyButton>
-              <DialogContent className={classes.dialogContent}>
-                {dialogMarkup}
-              </DialogContent>
-            </Dialog>
-        </Fragment>
-    )
+              <EditIcon color="primary" />
+            </IconButton>
+          </Tooltip>
+          <MyButton
+            tip="close"
+            onClick={this.handleClose}
+            tipClassName={classes.closeButton}
+          >
+            <CloseIcon />
+          </MyButton>
+          <DialogContent className={classes.dialogContent}>
+            {dialogMarkup}
+          </DialogContent>
+        </Dialog>
+      </Fragment>
+    );
   }
 }
 
@@ -252,7 +305,8 @@ PostDialog.propTypes = {
   getPost: PropTypes.func.isRequired,
   postId: PropTypes.string.isRequired,
   post: PropTypes.object.isRequired,
-  UI: PropTypes.object.isRequired
+  UI: PropTypes.object.isRequired,
+  uploadImage: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -261,8 +315,9 @@ const mapStateToProps = state => ({
 })
 
 const mapActionsToProps = {
-    getPost
-}
+    getPost,
+    uploadImage
+};
 
 export default connect(
   mapStateToProps,

@@ -147,7 +147,8 @@ const styles = {
 
 class PostDialog extends Component {
   state = {
-    open: false
+    open: false,
+    imageIndex: 0
   };
   handleImageUpload = (event) => {
       const images = event.target.files;
@@ -218,7 +219,7 @@ class PostDialog extends Component {
       <Grid className='grid-container' container spacing={10}>
         <Grid className="image-side" item sm={5}>
           <img
-            src={images}
+            src={images[this.state.imageIndex]}
             alt="enlarged photo"
             className={classes.image}
           />

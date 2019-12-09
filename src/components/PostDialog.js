@@ -18,6 +18,8 @@ import Tooltip from "@material-ui/core/Tooltip";
 import CloseIcon from "@material-ui/icons/Close";
 import UnfoldMore from "@material-ui/icons/UnfoldMore";
 import EditIcon from "@material-ui/icons/Edit";
+import KeyboardArrowRightOutlinedIcon from "@material-ui/icons/KeyboardArrowRightOutlined";
+import KeyboardArrowLeftOutlinedIcon from "@material-ui/icons/KeyboardArrowLeftOutlined";
 // import AppIcon from "../images/planumIcon.png";
 import ChangeHistoryIcon from "@material-ui/icons/ChangeHistory";
 //REDUX
@@ -150,26 +152,46 @@ class PostDialog extends Component {
     open: false,
     imageIndex: 0
   };
-  handleImageUpload = (event) => {
-      const images = event.target.files
-      const formDatas = [];
-      console.log('images variable type: ', images)
-      // images.forEach(image => {
-      //   }
-      // )
-    for(let i=0; i < images.length; i++){
-          const formData = new FormData();
-          formData.append('image', images[i], images[i].name);
-          formDatas.push(formData);
-
+  handleImageUpload = event => {
+    const images = event.target.files;
+    const formDatas = [];
+    console.log("images variable type: ", images);
+    // images.forEach(image => {
+    //   }
+    // )
+    for (let i = 0; i < images.length; i++) {
+      const formData = new FormData();
+      formData.append("image", images[i], images[i].name);
+      formDatas.push(formData);
     }
-        this.props.uploadImage(formDatas, this.props.postId);
+    this.props.uploadImage(formDatas, this.props.postId);
     // this.setState({ open: false });
-  }
+  };
+
+  handleIncrementImageIndex = () => images => {
+    // let tempState = this.state.imageIndex.slice();
+    if (this.state.imageIndex != images.length - 1) {
+      this.setState({ imageIndex: (this.state.imageIndex += 1) });
+      // tempState += 1
+    }
+    console.log(this.state)
+    // this.setState({ imageIndex: tempState });
+  };
+
+  handleDecrementImageIndex = () => images => {
+    // let tempState = this.state.imageIndex.slice();
+    if (this.state.imageIndex != 0) {
+      this.setState({ imageIndex: (this.state.imageIndex -= 1) });
+      // tempState += 1
+    }
+    console.log(this.state);
+    // this.setState({ imageIndex: tempState });
+  };
+
   handleEditPicture = () => {
-    const fileInput = document.getElementById('imageInput')
+    const fileInput = document.getElementById("imageInput");
     fileInput.click();
-  }
+  };
   handleOpen = () => {
     this.setState({ open: true });
     this.props.getPost(this.props.postId);
@@ -178,49 +200,47 @@ class PostDialog extends Component {
     this.setState({ open: false });
   };
 
+  render() {
+    const {
+      classes,
+      post: {
+        postId,
+        name,
+        images,
+        itemCategory,
+        link,
+        info,
+        price,
+        available,
+        highend
+      },
+      UI: { loading }
+    } = this.props;
 
-
-  render(){
-      const {
-        classes,
-        post: {
-          postId,
-          name,
-          images,
-          itemCategory,
-          link,
-          info,
-          price,
-          available,
-          highend
-        },
-        UI: { loading }
-      } = this.props;
-
-      // const {
-      //   classes,
-      //   post: {
-      //     name,
-      //     createdAt,
-      //     images,
-      //     itemCategory,
-      //     postId,
-      //     link,
-      //     info,
-      //     price,
-      //     available,
-      //     highEnd
-      //   },
-      //   UI: { loading },
-      //   user: { authenticated }
-      // } = this.props;
+    // const {
+    //   classes,
+    //   post: {
+    //     name,
+    //     createdAt,
+    //     images,
+    //     itemCategory,
+    //     postId,
+    //     link,
+    //     info,
+    //     price,
+    //     available,
+    //     highEnd
+    //   },
+    //   UI: { loading },
+    //   user: { authenticated }
+    // } = this.props;
 
     const dialogMarkup = loading ? (
       <div className={classes.spinnerDiv}>
         <CircularProgress size={200} thickness={2} />
       </div>
     ) : (
-      <Grid className='grid-container' container spacing={10}>
+      <Grid className="grid-container" container spacing={10}>
         <Grid className="image-side" item sm={5}>
           {images ? (
             <img
@@ -229,11 +249,23 @@ class PostDialog extends Component {
               className={classes.image}
             />
           ) : null}
+          <Tooltip title="Image Left" placement="top">
+            <KeyboardArrowLeftOutlinedIcon
+              onClick={this.handleDecrementImageIndex(images)}
+              // ClassName={classes.decrement}
+            />
+          </Tooltip>
+          <Tooltip title="Image Right" placement="top">
+            <KeyboardArrowRightOutlinedIcon
+              onClick={this.handleIncrementImageIndex(images)}
+              // ClassName={classes.increment}
+            />
+          </Tooltip>
         </Grid>
-        <Grid className='product-content' item direction="column" sm={5}>
-        <div class="wrapper">
-          <h1 class="separator text-right">{itemCategory}</h1>
-        </div>
+        <Grid className="product-content" item direction="column" sm={5}>
+          <div class="wrapper">
+            <h1 class="separator text-right">{itemCategory}</h1>
+          </div>
           <div className="content-box">
             <Typography className={classes.nameStyle} color="none" variant="h4">
               {name}

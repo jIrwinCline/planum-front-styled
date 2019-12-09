@@ -87,7 +87,7 @@ class PostProduct extends Component {
         event.preventDefault();
         this.props.postProduct({
           name: this.state.name,
-          images: [],
+          images: this.state.images,
           link: this.state.link,
           info: this.state.info,
           price: this.state.price,

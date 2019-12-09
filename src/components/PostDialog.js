@@ -151,18 +151,19 @@ class PostDialog extends Component {
     imageIndex: 0
   };
   handleImageUpload = (event) => {
-      const images = event.target.files;
+      const images = event.target.files
       const formDatas = [];
-      images.forEach(image => {
+      console.log('images variable type: ', images)
+      // images.forEach(image => {
+      //   }
+      // )
+    for(let i=0; i < images.length; i++){
           const formData = new FormData();
-          formData.append('image', image, image.name);
+          formData.append('image', images[i], images[i].name);
           formDatas.push(formData);
-        }
-        this.props.uploadImage(formDatas, this.props.postId);
-      )
-    // for(i=0; i < images.length; i++){
 
-    // }
+    }
+        this.props.uploadImage(formDatas, this.props.postId);
     // this.setState({ open: false });
   }
   handleEditPicture = () => {
@@ -176,6 +177,9 @@ class PostDialog extends Component {
   handleClose = () => {
     this.setState({ open: false });
   };
+
+
+
   render(){
       const {
         classes,
@@ -218,11 +222,13 @@ class PostDialog extends Component {
     ) : (
       <Grid className='grid-container' container spacing={10}>
         <Grid className="image-side" item sm={5}>
-          <img
-            src={images[this.state.imageIndex]}
-            alt="enlarged photo"
-            className={classes.image}
-          />
+          {images ? (
+            <img
+              src={images[this.state.imageIndex]}
+              alt="enlarged photo"
+              className={classes.image}
+            />
+          ) : null}
         </Grid>
         <Grid className='product-content' item direction="column" sm={5}>
         <div class="wrapper">

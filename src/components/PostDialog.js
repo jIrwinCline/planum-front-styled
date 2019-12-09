@@ -168,8 +168,9 @@ class PostDialog extends Component {
     // this.setState({ open: false });
   };
 
-  handleIncrementImageIndex = () => images => {
+  handleIncrementImageIndex = images => () => {
     // let tempState = this.state.imageIndex.slice();
+    console.log(this.state.imageIndex, images);
     if (this.state.imageIndex != images.length - 1) {
       this.setState({ imageIndex: (this.state.imageIndex += 1) });
       // tempState += 1
@@ -178,7 +179,7 @@ class PostDialog extends Component {
     // this.setState({ imageIndex: tempState });
   };
 
-  handleDecrementImageIndex = () => images => {
+  handleDecrementImageIndex = images => () => {
     // let tempState = this.state.imageIndex.slice();
     if (this.state.imageIndex != 0) {
       this.setState({ imageIndex: (this.state.imageIndex -= 1) });

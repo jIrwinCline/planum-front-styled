@@ -62,7 +62,7 @@ class home extends Component {
         const { posts, loading } = this.props.data;
         let recentPostsMarkup = !loading ? (
           posts.map(post => {
-            if (true) {
+            if (post.featured) {
               console.log("props: ", this.props);
               return (
                 <Grid item md={4} sm={6} xs={12} >

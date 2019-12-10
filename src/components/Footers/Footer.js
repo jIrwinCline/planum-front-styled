@@ -6,7 +6,13 @@ import React from "react";
 import { Row, Container } from "reactstrap";
 //MUI
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
-
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function DemoFooter() {
   return (
@@ -31,15 +37,12 @@ function DemoFooter() {
                 </div>
               </li>
               <li>
-                  <a
-                    data-placement="bottom"
-                    href="/login"
-                    target="_blank"
+                  <Link to="/login"
                     title="Admin"
                   >
                     <VpnKeyIcon  />
                     <p className="d-lg-none"> Admin</p>
-                  </a>
+                  </Link>
                 {/* <a href="#" target="_blank">
                   Licenses
                 </a> */}

@@ -84,7 +84,7 @@ function App() {
               path="/artist"
               render={props => <ProfilePage {...props} />}
             />
-            <Route path="/login" component={login} />
+            <Route exact path="/login" component={login} />
           </Switch>
         </div>
         <Footer />

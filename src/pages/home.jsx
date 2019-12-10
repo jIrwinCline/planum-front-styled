@@ -107,14 +107,13 @@ class home extends Component {
               </Grid>
               <div class="section-split">
                 
-                <div className={classes.center}>
+                {/* <div className={classes.center}>
           
                   <h1>About Planum Magic</h1>
                   <br />
-                  {/* <KeyboardArrowDownIcon fontSize="large" /> */}
-                </div>
+                </div> */}
               </div>
-              <p>Meet the Artist!</p>
+              {/* <p>Meet the Artist!</p>
               <Button
                 className="btn-outline-neutral btn-round"
                 color="default"
@@ -122,7 +121,7 @@ class home extends Component {
                 target="_blank"
               >
                 Profile Page
-              </Button>
+              </Button> */}
             </div>
           </>
         );

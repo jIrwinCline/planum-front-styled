@@ -58,7 +58,7 @@ function IndexNavbar(props) {
         <div className="navbar-translate">
           <NavbarBrand
             data-placement="bottom"
-            href="/index"
+            href="/"
             target="_blank"
             title="Return to home"
           >
@@ -66,7 +66,7 @@ function IndexNavbar(props) {
               <ChangeHistoryIcon /> <strong>P/M</strong>
             </h5>
           </NavbarBrand>
-          { postButton }
+          {postButton}
           <button
             aria-expanded={navbarCollapse}
             className={classnames("navbar-toggler navbar-toggler", {
@@ -85,7 +85,7 @@ function IndexNavbar(props) {
           isOpen={navbarCollapse}
         >
           <Nav navbar>
-            <NavItem>
+            {/* <NavItem>
               <NavLink
                 data-placement="bottom"
                 href="#"
@@ -95,11 +95,11 @@ function IndexNavbar(props) {
                 <i className="fa fa-twitter" />
                 <p className="d-lg-none">Twitter</p>
               </NavLink>
-            </NavItem>
+            </NavItem> */}
             <NavItem>
               <NavLink
                 data-placement="bottom"
-                href="#"
+                href="https://www.facebook.com/groups/521575651907265/"
                 target="_blank"
                 title="Like us on Facebook"
               >
@@ -110,7 +110,7 @@ function IndexNavbar(props) {
             <NavItem>
               <NavLink
                 data-placement="bottom"
-                href="#"
+                href="https://www.instagram.com/planum_magic/?hl=en"
                 target="_blank"
                 title="Follow us on Instagram"
               >

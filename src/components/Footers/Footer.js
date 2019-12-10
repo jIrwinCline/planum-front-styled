@@ -13,26 +13,30 @@ function DemoFooter() {
           <nav className="footer-nav">
             <ul>
               <li>
-                <a
+                {/* <a
                   href="#"
                   target="_blank"
                 >
                   Contact
-                </a>
+                </a> */}
+                <h5>
+                  <strong>Contact Us!</strong>
+                </h5>
+                <div style={{textAlign: 'left'}}>
+                <p>Inqueries by phone: (253) 441-9910</p>
+                <p>Inqueries by email: Planum.Magic@gmail.com</p>
+                </div>
               </li>
               <li>
-                <a
-                  href="#"
-                  target="_blank"
-                >
+                {/* <a href="#" target="_blank">
                   Licenses
-                </a>
+                </a> */}
               </li>
             </ul>
           </nav>
           <div className="credits ml-auto">
             <span className="copyright">
-              © {new Date().getFullYear()}, made by Adona Studios
+              © {new Date().getFullYear()}, made by Otigin Studios
             </span>
           </div>
         </Row>

@@ -383,9 +383,10 @@ PostDialog.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    post: state.data.post,
-    UI: state.UI
-})
+  post: state.data.post,
+  UI: state.UI,
+  user: state.user
+});
 
 const mapActionsToProps = {
     getPost,

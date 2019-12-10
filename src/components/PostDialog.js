@@ -220,7 +220,8 @@ class PostDialog extends Component {
         available,
         highend
       },
-      UI: { loading }
+      UI: { loading },
+      user: { authenticated }
     } = this.props;
 
     // const {
@@ -240,6 +241,16 @@ class PostDialog extends Component {
     //   UI: { loading },
     //   user: { authenticated }
     // } = this.props;
+    const editPhoto = authenticated ? (
+      <Tooltip title="Upload Picture" placement="top">
+        <IconButton
+          onClick={this.handleEditPicture}
+          className={classes.editButton}
+        >
+          <EditIcon color="primary" />
+        </IconButton>
+      </Tooltip>
+    ) : null;
 
     const dialogMarkup = loading ? (
       <div className={classes.spinnerDiv}>
@@ -345,14 +356,7 @@ class PostDialog extends Component {
             hidden="hidden"
             multiple
           />
-          <Tooltip title="Upload Picture" placement="top">
-            <IconButton
-              onClick={this.handleEditPicture}
-              className={classes.editButton}
-            >
-              <EditIcon color="primary" />
-            </IconButton>
-          </Tooltip>
+          {editPhoto}
           <MyButton
             tip="close"
             onClick={this.handleClose}

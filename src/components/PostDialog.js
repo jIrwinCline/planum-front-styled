@@ -144,6 +144,11 @@ const styles = {
   },
   gridContainer: {
     padding: "30px 0px 0px 30px"
+  },
+  imgArrow: {
+    // paddingRight: '20px',
+    // paddingLeft: '20px',
+    // position: 'absolute'
   }
 };
 
@@ -244,24 +249,40 @@ class PostDialog extends Component {
       <Grid className="grid-container" container spacing={10}>
         <Grid className="image-side" item sm={5}>
           {images ? (
-            <img
-              src={images[this.state.imageIndex]}
-              alt="enlarged photo"
-              className={classes.image}
-            />
+            <Grid
+              container
+              spacing={6}
+              direction="column"
+              justify="center"
+              alignItems="center"
+            >
+              <Grid item>
+                <img
+                  src={images[this.state.imageIndex]}
+                  alt="enlarged photo"
+                  className="imageDiv"
+                />
+              </Grid>
+              <Grid item className='imageGrid'>
+                <div className="dec">
+                  <Tooltip title="Image Left" placement="top">
+                    <KeyboardArrowLeftOutlinedIcon
+                      fontSize="large"
+                      onClick={this.handleDecrementImageIndex(images)}
+                    />
+                  </Tooltip>
+                  </div>
+                  <div className='inc'>
+                  <Tooltip title="Image Right" placement="top">
+                    <KeyboardArrowRightOutlinedIcon
+                      fontSize="large"
+                      onClick={this.handleIncrementImageIndex(images)}
+                    />
+                  </Tooltip>
+                </div>
+              </Grid>
+            </Grid>
           ) : null}
-          <Tooltip title="Image Left" placement="top">
-            <KeyboardArrowLeftOutlinedIcon
-              onClick={this.handleDecrementImageIndex(images)}
-              // ClassName={classes.decrement}
-            />
-          </Tooltip>
-          <Tooltip title="Image Right" placement="top">
-            <KeyboardArrowRightOutlinedIcon
-              onClick={this.handleIncrementImageIndex(images)}
-              // ClassName={classes.increment}
-            />
-          </Tooltip>
         </Grid>
         <Grid className="product-content" item direction="column" sm={5}>
           <div class="wrapper">
@@ -314,7 +335,7 @@ class PostDialog extends Component {
           onClose={this.handleClose}
           classes={{ paper: classes.dialogPaper }}
           fullscreen={true}
-          fullWidth
+          fullWidth='true'
           maxWidth="lg"
         >
           <input

@@ -118,17 +118,7 @@ function IndexNavbar(props) {
                 <p className="d-lg-none">Instagram</p>
               </NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink
-                data-placement="bottom"
-                href="/login"
-                target="_blank"
-                title="Admin"
-              >
-                <i className="fa fa-instagram" />
-                <p className="d-lg-none">Admin</p>
-              </NavLink>
-            </NavItem>
+            
           </Nav>
         </Collapse>
       </Container>

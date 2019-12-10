@@ -4,6 +4,9 @@ import React from "react";
 
 // reactstrap components
 import { Row, Container } from "reactstrap";
+//MUI
+import VpnKeyIcon from "@material-ui/icons/VpnKey";
+
 
 function DemoFooter() {
   return (
@@ -22,12 +25,21 @@ function DemoFooter() {
                 <h5>
                   <strong>Contact Us!</strong>
                 </h5>
-                <div style={{textAlign: 'left'}}>
-                <p>Inqueries by phone: (253) 441-9910</p>
-                <p>Inqueries by email: Planum.Magic@gmail.com</p>
+                <div style={{ textAlign: "left" }}>
+                  <p>Inqueries by phone: (253) 441-9910</p>
+                  <p>Inqueries by email: Planum.Magic@gmail.com</p>
                 </div>
               </li>
               <li>
+                  <a
+                    data-placement="bottom"
+                    href="/login"
+                    target="_blank"
+                    title="Admin"
+                  >
+                    <VpnKeyIcon  />
+                    <p className="d-lg-none"> Admin</p>
+                  </a>
                 {/* <a href="#" target="_blank">
                   Licenses
                 </a> */}

@@ -30,6 +30,9 @@
 .nav-items:hover {
     color: rgb(209, 209, 209);
 }
+.nav-link {
+    margin: 15px 8px !important;
+}
 @media screen and (max-width: 991px){
     .nav-items:hover {
         color: rgb(0, 0, 0);

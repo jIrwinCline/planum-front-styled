@@ -1,0 +1,33 @@
+.middle-nav-items {
+    float: left;
+    // background-color: red;
+    // width: 200px;
+    // left: 25%;
+    position: relative;
+    // align-items: center;
+    
+}
+.blog {
+    // background-color: red;
+    // width: 50px;
+    float: right;
+    // margin-right: 44%;
+}
+.store {
+    // margin-left: 41%;
+    // background-color: red;
+    // width: 50px;
+    float: left;
+}
+.nav-items {
+    color: rgb(172, 172, 172);
+    font-weight: bold;
+}
+.nav-items:hover {
+    color: rgb(209, 209, 209);
+}
+@media screen and (max-width: 991px){
+    .nav-items:hover {
+        color: rgb(0, 0, 0);
+}
+}

@@ -52,8 +52,9 @@ function IndexNavbar(props) {
     };
   });
   const postButton = authenticated ? <PostProduct /> : null;
+  let navClass = `important-nav ${classnames("fixed-top", navbarColor)}`
   return (
-    <Navbar className={classnames("fixed-top", navbarColor)} expand="lg">
+    <Navbar className={navClass} expand="lg">
       <Container>
         <div className="navbar-translate">
           <NavbarBrand

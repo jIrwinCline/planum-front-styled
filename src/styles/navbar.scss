@@ -7,6 +7,10 @@
     // align-items: center;
     
 }
+.important-nav {
+    height: 94px !important;
+    padding-bottom: 60px !important;
+}
 .blog {
     // background-color: red;
     // width: 50px;
@@ -29,5 +33,8 @@
 @media screen and (max-width: 991px){
     .nav-items:hover {
         color: rgb(0, 0, 0);
+    }
+    .navbar-translate {
+        margin-top: -80px;
 }
 }

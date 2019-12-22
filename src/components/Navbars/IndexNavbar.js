@@ -52,8 +52,9 @@ function IndexNavbar(props) {
     };
   });
   const postButton = authenticated ? <PostProduct /> : null;
+  let navClass = `important-nav ${classnames("fixed-top", navbarColor)}`
   return (
-    <Navbar className={classnames("fixed-top", navbarColor)} expand="lg">
+    <Navbar className={navClass} expand="lg">
       <Container>
         <div className="navbar-translate">
           <NavbarBrand
@@ -85,6 +86,35 @@ function IndexNavbar(props) {
           isOpen={navbarCollapse}
         >
           <Nav navbar>
+          {/* <div className="middle-nav-items">
+            <div className='store'> */}
+              <NavItem>
+                <NavLink>
+                  <Link to={{
+                        pathname: "/products",
+                        state: {
+                          pageCategory: "painting"
+                        }
+                      }}>
+                  
+                    {/*<i className="nc-icon nc-book-bookmark" />*/} <h5 className="nav-items">Store</h5>
+                  </Link>
+                </NavLink>
+              </NavItem>
+              {/* </div>
+              <div className='blog'> */}
+              <NavItem >
+                  <NavLink
+                    target="_blank"
+                  >
+                  <Link to='/blog'>
+                    {/*<i className="nc-icon nc-book-bookmark" />*/} <h5  className="nav-items">Blog</h5>
+                </Link>
+                  </NavLink>
+              </NavItem>
+              {/* </div>
+            </div> */}
+            <hr/>
             {/* <NavItem>
               <NavLink
                 data-placement="bottom"

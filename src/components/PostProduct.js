@@ -141,6 +141,9 @@ class PostProduct extends Component {
               <DialogTitle>Post the new Product</DialogTitle>
               <DialogContent>
                 <form onSubmit={this.handleSubmit}>
+                <br/>
+                <br/>
+                <h5>Name of Product</h5>
                   <TextField
                     name="name"
                     type="text"
@@ -154,7 +157,7 @@ class PostProduct extends Component {
                     onChange={this.handleChange}
                     fullWidth
                   />
-                  <TextField
+                  {/* <TextField
                     name="images"
                     type="text"
                     lable="image"
@@ -166,7 +169,10 @@ class PostProduct extends Component {
                     className={classes.textFields}
                     onChange={this.handleChange}
                     fullWidth
-                  />
+                  /> */}
+                  <br/>
+                  <br/>
+                  <h5>Item Category</h5>
                   <TextField
                     name="itemCategory"
                     type="text"
@@ -180,6 +186,9 @@ class PostProduct extends Component {
                     onChange={this.handleChange}
                     fullWidth
                   />
+                  <br/>
+                  <br/>
+                  <h5>Link to buy</h5>
                   <TextField
                     name="link"
                     type="text"
@@ -193,6 +202,9 @@ class PostProduct extends Component {
                     onChange={this.handleChange}
                     fullWidth
                   />
+                  <br/>
+                  <br/>
+                  <h5>Informative Sentence</h5>
                   <TextField
                     name="info"
                     type="text"
@@ -206,6 +218,9 @@ class PostProduct extends Component {
                     onChange={this.handleChange}
                     fullWidth
                   />
+                  <br/>
+                  <br/>
+                  <h5>Price</h5>
                   <TextField
                     name="price"
                     type="text"

@@ -13,9 +13,29 @@ import DeleteOutline from "@material-ui/icons/DeleteOutline";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import AddIcon from '@material-ui/icons/Add';
 import CloseIcon from "@material-ui/icons/Close";
+
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 //REDUX
 import { connect } from "react-redux";
 import { postProduct, clearErrors } from "../redux/actions/dataActions";
+//Reactstrap
+import {
+  // Button,
+  Label,
+  FormGroup,
+  Input,
+  InputGroupAddon,
+  InputGroupText,
+  InputGroup,
+  Container,
+  Row,
+  Col
+} from "reactstrap";
 
 const styles = {
   form: {
@@ -121,6 +141,9 @@ class PostProduct extends Component {
               <DialogTitle>Post the new Product</DialogTitle>
               <DialogContent>
                 <form onSubmit={this.handleSubmit}>
+                <br/>
+                <br/>
+                <h5>Name of Product</h5>
                   <TextField
                     name="name"
                     type="text"
@@ -134,7 +157,7 @@ class PostProduct extends Component {
                     onChange={this.handleChange}
                     fullWidth
                   />
-                  <TextField
+                  {/* <TextField
                     name="images"
                     type="text"
                     lable="image"
@@ -146,7 +169,10 @@ class PostProduct extends Component {
                     className={classes.textFields}
                     onChange={this.handleChange}
                     fullWidth
-                  />
+                  /> */}
+                  <br/>
+                  <br/>
+                  <h5>Item Category</h5>
                   <TextField
                     name="itemCategory"
                     type="text"
@@ -160,6 +186,9 @@ class PostProduct extends Component {
                     onChange={this.handleChange}
                     fullWidth
                   />
+                  <br/>
+                  <br/>
+                  <h5>Link to buy</h5>
                   <TextField
                     name="link"
                     type="text"
@@ -173,6 +202,9 @@ class PostProduct extends Component {
                     onChange={this.handleChange}
                     fullWidth
                   />
+                  <br/>
+                  <br/>
+                  <h5>Informative Sentence</h5>
                   <TextField
                     name="info"
                     type="text"
@@ -186,6 +218,9 @@ class PostProduct extends Component {
                     onChange={this.handleChange}
                     fullWidth
                   />
+                  <br/>
+                  <br/>
+                  <h5>Price</h5>
                   <TextField
                     name="price"
                     type="text"
@@ -199,33 +234,33 @@ class PostProduct extends Component {
                     onChange={this.handleChange}
                     fullWidth
                   />
-                  <TextField
-                    name="available"
-                    type="text"
-                    lable="available?"
-                    multiline
-                    rows="3"
-                    placeholder="true"
-                    error={errors.body ? true : false}
-                    helperText={errors.body}
-                    className={classes.textFields}
-                    onChange={this.handleChange}
-                    fullWidth
-                  />
-                  <TextField
-                    name="highEnd"
-                    type="text"
-                    lable="High-end or not?"
-                    multiline
-                    rows="3"
-                    placeholder="false"
-                    error={errors.body ? true : false}
-                    helperText={errors.body}
-                    className={classes.textFields}
-                    onChange={this.handleChange}
-                    fullWidth
-                  />
-                  <TextField
+                  {/* <div className="title">
+                    <h3>Is it a high end product?</h3>
+                  </div>
+                  <div className="form-check-radio">
+                    <Label check>
+                      <Input
+                        defaultValue="true"
+                        id="Radios1"
+                        name="Radios"
+                        type="radio"
+                      />
+                      Yes<span className="form-check-sign" />
+                    </Label>
+                  </div>
+                  <div className="form-check-radio">
+                    <Label check>
+                      <Input
+                        defaultChecked
+                        defaultValue="false"
+                        id="Radios2"
+                        name="Radios"
+                        type="radio"
+                      />
+                      No <span className="form-check-sign" />
+                    </Label>
+                  </div> */}
+                  {/* <TextField
                     name="featured"
                     type="text"
                     lable="featured? true/false"
@@ -237,7 +272,30 @@ class PostProduct extends Component {
                     className={classes.textFields}
                     onChange={this.handleChange}
                     fullWidth
-                  />
+                  /> */}
+                  <br/>
+                  <br/>
+                  <FormControl component="fieldset" className={classes.formControl}
+                  error={errors.body ? true : false}
+                  fullWidth
+                  >
+                    <FormLabel component="legend">Is this a high end product?</FormLabel>
+                    <RadioGroup aria-label="high end" name="highEnd" value="highEnd" onChange={this.handleChange}>
+                      <FormControlLabel value="true" control={<Radio />} label="Yes" />
+                      <FormControlLabel value="false" control={<Radio />} label="No" />
+                    </RadioGroup>
+                  </FormControl>
+
+                  <FormControl component="fieldset" className={classes.formControl}
+                  error={errors.body ? true : false}
+                  fullWidth
+                  >
+                    <FormLabel component="legend">Feature this on the front page?</FormLabel>
+                    <RadioGroup aria-label="featured" name="featured" value="featured" onChange={this.handleChange}>
+                      <FormControlLabel value="true" control={<Radio />} label="Yes" />
+                      <FormControlLabel value="false" control={<Radio />} label="No" />
+                    </RadioGroup>
+                  </FormControl>
                   <Button
                     type="submit"
                     variant="contained"

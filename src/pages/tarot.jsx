@@ -9,6 +9,10 @@ import { getPosts } from "../redux/actions/dataActions";
 import Navbar2 from "../components/Navbar2";
 import logo from "../assets/img/planumLogo.jpg";
 import { withStyles } from "@material-ui/core/styles";
+
+import IndexNavbar from "components/Navbars/IndexNavbar.js";
+import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
+
 const styles = {
   card: {
     position: "relative",
@@ -66,6 +70,8 @@ export class products extends Component {
     // );
     return (
       <>
+      <IndexNavbar/>
+      <ProfilePageHeader/>
         <hr className={classes.line} />
         <img className={classes.image} src={logo} alt="main logo" />
         <Navbar2 />

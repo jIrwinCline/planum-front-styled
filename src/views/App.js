@@ -23,8 +23,10 @@ import AuthRoute from "../util/AuthRoute";
 import home from '../pages/home';
 import login from '../pages/login';
 import products from '../pages/products';
+import product from '../pages/product';
 import retreats from "../pages/retreats";
 import tarot from "../pages/tarot";
+import blogPage from "../pages/blogPage";
 
 import ProfilePage from "views/examples/ProfilePage.js";
 // index sections
@@ -78,12 +80,14 @@ function App() {
           <Switch>
             <Route exact path="/" component={home} />
             <Route exact path="/products" component={products} />
+            <Route path="/products/:id" component={product} />
             <Route exact path="/retreats" component={retreats} />
             <Route exact path="/tarot" component={tarot} />
             <Route
               path="/artist"
               render={props => <ProfilePage {...props} />}
             />
+            <Route exact path="/blog" component={blogPage} />
             <Route exact path="/login" component={login} />
           </Switch>
         </div>

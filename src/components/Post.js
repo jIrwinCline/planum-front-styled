@@ -92,6 +92,7 @@ export class Post extends Component {
           <DeletePost postId={postId} />
         ) : null;
         return (
+          <Link  to={`/products/${postId}`}>
           <Card className={classes.card}>
             <CardMedia
               className={classes.media}
@@ -120,6 +121,7 @@ export class Post extends Component {
               <PostDialog postId={postId} />
             </CardContent>
           </Card>
+          </Link>
           // <Card className={classes.card}>
           //   <CardMedia
           //     image={planumIcon}
@@ -143,6 +145,18 @@ export class Post extends Component {
         );
     }
 }
+
+// function Child() {
+//   // We can use the `useParams` hook here to access
+//   // the dynamic pieces of the URL.
+//   let { id } = useParams();
+
+//   return (
+//     <div>
+//       <h3>ID: {id}</h3>
+//     </div>
+//   );
+// }
 
 Post.propTypes = {
   user: PropTypes.object.isRequired,

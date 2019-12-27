@@ -6,12 +6,14 @@ import PropTypes from 'prop-types';
 
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
+import PostPage from "components/PostPage.js";
 
 import { connect } from 'react-redux';
 import { getPosts } from '../redux/actions/dataActions'
 import Navbar2 from "../components/Navbar2";
 import logo from "../assets/img/planumLogo.jpg";
 import { withStyles } from "@material-ui/core/styles";
+
 const styles = {
   card: {
     position: "relative",
@@ -44,55 +46,27 @@ const styles = {
   }
 };
 
-export class products extends Component {
-    componentDidMount(){
-        this.props.getPosts();
-    }
-
+export class product extends Component {
     render() {
-        const { classes } = this.props;
-        const { posts, loading } = this.props.data;
-        let recentPostsMarkup = !loading ? (
-          posts.map(post => {
-            if (post.itemCategory == this.props.location.state.pageCategory) {
-              console.log("props: ", this.props);
-              console.log("category: ", this.props.location.state.pageCategory);
-              return (
-                <Grid item md={4} sm={6} xs={12} >
-                  <Post key={post.postId} post={post} />
-                </Grid>
-              );
-            }
-          })
-        ) : (
-          <p>...Loading</p>
-        );
+    const { classes } = this.props;
         return (
-          <>
+            <>
             <IndexNavbar />
             <div className='profile-header'>
             <ProfilePageHeader />
             </div>
             <hr className={classes.line} />
             <img className={classes.image} src={logo} alt="main logo" />
-            <Navbar2 />
-            <div className={classes.container}>
-              <Grid container spacing={12}>
-                {recentPostsMarkup}
-              </Grid>
+            <div>
+                <PostPage/>
             </div>
-          </>
-        );
+            </>
+        )
     }
-    }
+}
 
-    products.propTypes = {
-        getPosts: PropTypes.func.isRequired,
-        data: PropTypes.object.isRequired
-    }
-
-    const mapStateToProps = state => ({
+const mapStateToProps = state => ({
         data: state.data
     })
 
-export default connect(mapStateToProps, { getPosts })(withStyles(styles)(products));
+export default connect(mapStateToProps)(withStyles(styles)(product))

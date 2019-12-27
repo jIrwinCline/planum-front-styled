@@ -45,7 +45,7 @@ const styles = {
   }
 };
 
-export class products extends Component {
+export class blogPage extends Component {
   componentDidMount() {
     this.props.getPosts();
   }
@@ -75,8 +75,8 @@ export class products extends Component {
           <ProfilePageHeader />
         </div>
         <hr className={classes.line} />
-        <img className={classes.image} src={logo} alt="main logo" />
-        <Navbar2 />
+        {/* <img className={classes.image} src={logo} alt="main logo" /> */}
+
         {/* <div className={classes.container}>
           <Grid container spacing={12}>
             {recentPostsMarkup}
@@ -87,7 +87,7 @@ export class products extends Component {
   }
 }
 
-products.propTypes = {
+blogPage.propTypes = {
   getPosts: PropTypes.func.isRequired,
   data: PropTypes.object.isRequired
 };
@@ -97,5 +97,5 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, { getPosts })(
-  withStyles(styles)(products)
+  withStyles(styles)(blogPage)
 );

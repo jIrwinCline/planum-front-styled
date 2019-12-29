@@ -1,0 +1,21 @@
+<FormControl component="fieldset" className={classes.formControl}
+                  error={errors.body ? true : false}
+                  fullWidth
+                  >
+                    <FormLabel component="legend">Is this a high end product?</FormLabel>
+                    <RadioGroup aria-label="high end" name="highEnd" value="highEnd" onChange={this.handleChange}>
+                      <FormControlLabel value="true" control={<StyledRadio />} label="Yes" />
+                      <FormControlLabel value="false" control={<StyledRadio />} label="No" />
+                    </RadioGroup>
+                  </FormControl>
+
+                  <FormControl component="fieldset" className={classes.formControl}
+                  error={errors.body ? true : false}
+                  fullWidth
+                  >
+                    <FormLabel component="legend">Feature this on the front page?</FormLabel>
+                    <RadioGroup aria-label="featured" name="featured" value="featured" onChange={this.handleChange}>
+                      <FormControlLabel value="true" control={<StyledRadio />} label="Yes" />
+                      <FormControlLabel value="false" control={<StyledRadio />} label="No" />
+                    </RadioGroup>
+                  </FormControl>

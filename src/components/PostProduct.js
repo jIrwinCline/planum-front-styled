@@ -3,6 +3,8 @@ import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import MyButton from "../util/MyButton";
 
+// import clsx from 'clsx';
+
 //MUI Stuff
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -75,15 +77,75 @@ const styles = {
       position: 'absolute',
       left: '91%',
       top: '6%'
-  }
+  },
+  root: {
+    '&:hover': {
+      backgroundColor: 'transparent',
+    },
+  },
+  icon: {
+    borderRadius: '50%',
+    width: 16,
+    height: 16,
+    boxShadow: 'inset 0 0 0 1px rgba(16,22,26,.2), inset 0 -1px 0 rgba(16,22,26,.1)',
+    backgroundColor: '#f5f8fa',
+    backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,0))',
+    '$root.Mui-focusVisible &': {
+      outline: '2px auto rgba(19,124,189,.6)',
+      outlineOffset: 2,
+    },
+    'input:hover ~ &': {
+      backgroundColor: '#ebf1f5',
+    },
+    'input:disabled ~ &': {
+      boxShadow: 'none',
+      background: 'rgba(206,217,224,.5)',
+    },
+  },
+  checkedIcon: {
+    backgroundColor: '#137cbd',
+    backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))',
+    '&:before': {
+      display: 'block',
+      width: 16,
+      height: 16,
+      backgroundImage: 'radial-gradient(#fff,#fff 28%,transparent 32%)',
+      content: '""',
+    },
+    'input:hover ~ &': {
+      backgroundColor: '#106ba3',
+    },
+  },
 };
 
+function StyledRadio(props) {
+  const classes = props;
+
+  return (
+    <Radio
+      className={classes.root}
+      disableRipple
+      color="default"
+      // checkedIcon={<span className={clsx(classes.icon, classes.checkedIcon)} />}
+      checkedIcon={<span className={`${classes.icon} ${classes.checkedIcon}`} />}
+      icon={<span className={classes.icon} />}
+      {...props}
+    />
+  );
+}
+
+// const [selectedValue, setSelectedValue] = React.useState('a');
+
 class PostProduct extends Component {
-    state = {
+  constructor(props){
+    super(props)
+    this.state = {
         open: false,
         name: '',
         errors: {}
     };
+    // this.radioChange = this.radioChange.bind(this);
+  }
     UNSAFE_componentWillReceiveProps(nextProps){
         if (nextProps.UI.errors) {
             this.setState({
@@ -103,6 +165,7 @@ class PostProduct extends Component {
     handleChange = (event) => {
         this.setState({ [event.target.name]: event.target.value })
     }
+
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.postProduct({
@@ -234,32 +297,106 @@ class PostProduct extends Component {
                     onChange={this.handleChange}
                     fullWidth
                   />
+
+                  {/*////////////////////////////////////////*/}
+                  <div className="title">
+                    <h3>Feature this on the front page?</h3>
+                  </div>
+                  
+                  <ul>
+                    <li>
+                      <label>
+                        <input
+                          type="radio"
+                          name="featured"
+                          value="true"
+                          // checked={this.state.size === "small"}
+                          onChange={this.handleChange}
+                        />
+                        Yes
+                      </label>
+                    </li>
+                    
+                    <li>
+                      <label>
+                        <input
+                          type="radio"
+                          name="featured"
+                          value="false"
+                          // checked={this.state.size === "medium"}
+                          onChange={this.handleChange}
+                        />
+                        No
+                      </label>
+                    </li>
+                  </ul>
+
+                  <div className="title">
+                    <h3>Is it a high end product?</h3>
+                  </div>
+                  
+                  <ul>
+                    <li>
+                      <label>
+                        <input
+                          type="radio"
+                          name="highEnd"
+                          value="true"
+                          // checked={this.state.size === "small"}
+                          onChange={this.handleChange}
+                        />
+                        Yes
+                      </label>
+                    </li>
+                    
+                    <li>
+                      <label>
+                        <input
+                          type="radio"
+                          name="highEnd"
+                          value="false"
+                          // checked={this.state.size === "medium"}
+                          onChange={this.handleChange}
+                        />
+                        No
+                      </label>
+                    </li>
+                  </ul>
+                  
+
                   {/* <div className="title">
                     <h3>Is it a high end product?</h3>
                   </div>
                   <div className="form-check-radio">
-                    <Label check>
+                    <Label 
+                      check
+                      onChange={this.handleChange}
+                    >
                       <Input
                         defaultValue="true"
                         id="Radios1"
-                        name="Radios"
+                        name="featured"
                         type="radio"
                       />
                       Yes<span className="form-check-sign" />
                     </Label>
                   </div>
                   <div className="form-check-radio">
-                    <Label check>
+                    <Label 
+                      check
+                      onChange={this.handleChange}
+                    >
                       <Input
                         defaultChecked
                         defaultValue="false"
                         id="Radios2"
-                        name="Radios"
+                        name="featured"
                         type="radio"
                       />
                       No <span className="form-check-sign" />
                     </Label>
                   </div> */}
+                  {/*--------------------------------------- */}
                   {/* <TextField
                     name="featured"
                     type="text"
@@ -272,30 +409,23 @@ class PostProduct extends Component {
                     className={classes.textFields}
                     onChange={this.handleChange}
                     fullWidth
+                  />
+                  <TextField
+                    name="highEnd"
+                    type="text"
+                    lable="hgh end product? true/false"
+                    multiline
+                    rows="3"
+                    placeholder="highEnd? true/false"
+                    error={errors.body ? true : false}
+                    helperText={errors.body}
+                    className={classes.textFields}
+                    onChange={this.handleChange}
+                    fullWidth
                   /> */}
                   <br/>
                   <br/>
-                  <FormControl component="fieldset" className={classes.formControl}
-                  error={errors.body ? true : false}
-                  fullWidth
-                  >
-                    <FormLabel component="legend">Is this a high end product?</FormLabel>
-                    <RadioGroup aria-label="high end" name="highEnd" value="highEnd" onChange={this.handleChange}>
-                      <FormControlLabel value="true" control={<Radio />} label="Yes" />
-                      <FormControlLabel value="false" control={<Radio />} label="No" />
-                    </RadioGroup>
-                  </FormControl>
-
-                  <FormControl component="fieldset" className={classes.formControl}
-                  error={errors.body ? true : false}
-                  fullWidth
-                  >
-                    <FormLabel component="legend">Feature this on the front page?</FormLabel>
-                    <RadioGroup aria-label="featured" name="featured" value="featured" onChange={this.handleChange}>
-                      <FormControlLabel value="true" control={<Radio />} label="Yes" />
-                      <FormControlLabel value="false" control={<Radio />} label="No" />
-                    </RadioGroup>
-                  </FormControl>
+                  
                   <Button
                     type="submit"
                     variant="contained"

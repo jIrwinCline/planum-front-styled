@@ -57,16 +57,18 @@ function IndexNavbar(props) {
     <Navbar className={navClass} expand="lg">
       <Container>
         <div className="navbar-translate">
-          <NavbarBrand
-            data-placement="bottom"
-            href="/"
-            target="_blank"
-            title="Return to home"
-          >
-            <h5>
-              <ChangeHistoryIcon /> <strong>P/M</strong>
-            </h5>
-          </NavbarBrand>
+          <Link to='/'>
+            <NavbarBrand
+              data-placement="bottom"
+              href="/"
+              target="_blank"
+              title="Return to home"
+            >
+              <h5>
+                <ChangeHistoryIcon /> <strong>P/M</strong>
+              </h5>
+            </NavbarBrand>
+          </Link>
           {postButton}
           <button
             aria-expanded={navbarCollapse}
@@ -103,15 +105,18 @@ function IndexNavbar(props) {
               </NavItem>
               {/* </div>
               <div className='blog'> */}
-              <NavItem >
+
+              {/* -----------------BLOG BUTTON--------------------------------------------- */}
+              {/* <NavItem >
                   <NavLink
                     target="_blank"
                   >
-                  <Link to='/blog'>
-                    {/*<i className="nc-icon nc-book-bookmark" />*/} <h5  className="nav-items">Blog</h5>
-                </Link>
+                    <Link to='/blog'>
+                      <h5  className="nav-items">Blog</h5>
+                    </Link>
                   </NavLink>
-              </NavItem>
+              </NavItem> */}
+              {/* -------------------------------------------------------------- */}
               {/* </div>
             </div> */}
             <hr/>

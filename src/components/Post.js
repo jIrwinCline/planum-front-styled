@@ -89,17 +89,18 @@ export class Post extends Component {
           }
         } = this.props;
         const deleteButton = authenticated ? (
-          <DeletePost postId={postId} />
+          <DeletePost className="delete-button" postId={postId} />
         ) : null;
         return (
-          <Link  to={`/products/${postId}`}>
           <Card className={classes.card}>
+          <Link  to={`/products/${postId}`}>
             <CardMedia
               className={classes.media}
               image={images[0]
                 // "https://image.freepik.com/free-photo/river-foggy-mountains-landscape_1204-511.jpg"
               }
             />
+            </Link>
             <CardContent className={classes.content}>
               <Typography
                 className={"MuiTypography--heading"}
@@ -118,10 +119,10 @@ export class Post extends Component {
               <div className={classes.priceBox}>
               <Typography>{price}$</Typography>
               </div>
-              <PostDialog postId={postId} />
+              {/* <PostDialog postId={postId} /> */}
             </CardContent>
           </Card>
-          </Link>
+          
           // <Card className={classes.card}>
           //   <CardMedia
           //     image={planumIcon}

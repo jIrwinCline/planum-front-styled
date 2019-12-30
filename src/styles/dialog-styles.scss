@@ -200,12 +200,12 @@ h1 {
 		width: 100%;
 	}
 	.dec{
-		left: 20% !important;
-		position: absolute;
+		// left: 20% !important;
+		// position: absolute;
 	}
 	.inc{
-		right: 20% !important;
-		position: absolute;
+		// right: 20% !important;
+		// position: absolute;
 	}
 }
   @media only screen and (max-width: 350px) {
@@ -238,13 +238,13 @@ h1 {
   }
 //Image
 .imageDiv {
-	position: "relative";
-    margin: "20px auto 20px auto";
+	// position: "relative";
+    // margin: "20px auto 20px auto";
 	// width: 100%;
 	max-height: 600px;
 	max-width: 100%;
-	padding: 19px;
-	padding-top: 45px;
+	// padding: 19px;
+	// padding-top: 45px;
 }
 .dec{
 	// left: 38%;
@@ -254,9 +254,16 @@ h1 {
 .inc{
 	// right: 38%;
 	// margin-right: 20px;
-	margin-left: 85px;
+	margin-left: 77px;
 	position: absolute;
 }
+.dec:hover {
+	background-color: lightgrey;
+}
+.inc:hover {
+	background-color: lightgrey;
+}
+
 .imageGrid {
 	min-height: 125px;
 	// margin-left: -300px;

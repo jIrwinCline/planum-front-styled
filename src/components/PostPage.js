@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton'
 import Tooltip from "@material-ui/core/Tooltip";
 import Grid from '@material-ui/core/grid';
 import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography'
 
 
 import { withStyles } from "@material-ui/core/styles";
@@ -20,6 +21,7 @@ import { connect } from 'react-redux';
 import { getPosts } from '../redux/actions/dataActions'
 import { getPost, uploadImage } from '../redux/actions/dataActions';
 //COMPONENTS
+// import DeletePost from '../components/DeletePost';
 import Navbar2 from "../components/Navbar2";
 import PostFromParams from "../components/PostFromParams"
 import logo from "../assets/img/planumLogo.jpg";
@@ -28,8 +30,8 @@ import logo from "../assets/img/planumLogo.jpg";
 const styles = {
     editButton: {
         position: "absolute",
-        left: "88%",
-        top: "15%",
+        left: "80%",
+        top: "20%",
         zIndex: 10
     },
 }
@@ -126,22 +128,25 @@ export class PostPage extends Component {
             <Tooltip title="Upload Picture" placement="top">
                 <IconButton
                 onClick={this.handleEditPicture}
-                className={classes.editButton}
+                className="edit-button"
+                style={{position: 'relative'}}
                 >
                 <EditIcon color="primary" />
                 </IconButton>
             </Tooltip>
         ) : null;
-
+        // const deleteButton = authenticated ? (
+        //   <DeletePost className="delete-button" postId={this.props.match.params} />
+        // ) : null;
         return (
             <Container maxWidth="lg">
-            <h1>{name}</h1>
-                <Grid container>
-                    <Grid item xs={12} sm={7} md={8}>
+            <br/><br/>
+                <Grid container spacing={3}>
+                    <Grid item xs={12} sm={6} md={7}>
                         {images ? (
                             <Grid
                             container
-                            spacing={6}
+                            // spacing={6}
                             direction="column"
                             justify="center"
                             alignItems="center"
@@ -153,11 +158,12 @@ export class PostPage extends Component {
                                     className="imageDiv"
                                     />
                                 </Grid>
+                                <br/>
                                 <Grid item className='imageGrid'>
                                     <div className="dec">
                                     <Tooltip title="Image Left" placement="top">
                                         <KeyboardArrowLeftOutlinedIcon
-                                        fontSize="large"
+                                        style={{ fontSize: 50 }}
                                         onClick={this.handleDecrementImageIndex(images)}
                                         />
                                     </Tooltip>
@@ -165,7 +171,7 @@ export class PostPage extends Component {
                                     <div className='inc'>
                                     <Tooltip title="Image Right" placement="top">
                                         <KeyboardArrowRightOutlinedIcon
-                                        fontSize="large"
+                                        style={{ fontSize: 50 }}
                                         onClick={this.handleIncrementImageIndex(images)}
                                         />
                                     </Tooltip>
@@ -174,9 +180,48 @@ export class PostPage extends Component {
                             </Grid>
                         ) : null}
                     </Grid>
-                    <Grid item xs={12} sm={5} md={4}>
-                        <div style={{backgroundColor: 'yellow', height: '800px'}}>
+                    <Grid item xs={12} sm={6} md={4}>
+                        <div className="info-grid">
+                        <h2>{name}</h2>
+                        {/* {deleteButton} */}
+                        <h4><strong>${price}</strong></h4>
+                        <p>Free shipping to the <u>United States</u></p>
+                        <div className={classes.boxStyle}>
+                            <button className="button button--wayra button--border-thick button--text-upper button--size-s">
+                                <a href={link} className="button-text">
+                                <Typography color="inherit" variant="h5">
+                                    Buy Item
+                                </Typography>
+                                </a>
+                            </button>
+                            {editPhoto}
+                            <input
+                                type="file"
+                                id="imageInput"
+                                onChange={this.handleImageUpload}
+                                hidden="hidden"
+                                multiple
+                            />
+                            <br/>
+                            <br/>
+                            <br/>
                         </div>
+                        <hr/>
+                        <h6>Item details</h6>
+                        <p>{info}</p>
+                        <p><strong>Materials</strong></p>
+                        <p>Metallic leafing, Micron Pen</p>
+                        <br/>
+                        <p>Each piece is created intuitively, with the intention of providing grounding and centering in the space for which it lives.</p>
+                        <hr/>
+                        <h6>Shipping Details</h6>
+                        <p>Ships from Olympia, Washington</p>
+                        <p>Free shipping costs within United States</p>
+                        </div>
+                    </Grid>
+                    <Grid item xs={12} sm={12} md={1}>
+                        
+                        
                     </Grid>
                 </Grid>
             </Container>

@@ -200,12 +200,12 @@ h1 {
 		width: 100%;
 	}
 	.dec{
-		left: 20% !important;
-		position: absolute;
+		// left: 20% !important;
+		// position: absolute;
 	}
 	.inc{
-		right: 20% !important;
-		position: absolute;
+		// right: 20% !important;
+		// position: absolute;
 	}
 }
   @media only screen and (max-width: 350px) {
@@ -254,7 +254,7 @@ h1 {
 .inc{
 	// right: 38%;
 	// margin-right: 20px;
-	margin-left: 85px;
+	margin-left: 77px;
 	position: absolute;
 }
 .dec:hover {
@@ -262,7 +262,6 @@ h1 {
 }
 .inc:hover {
 	background-color: lightgrey;
-	
 }
 
 .imageGrid {

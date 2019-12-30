@@ -157,7 +157,7 @@ export class PostPage extends Component {
                                     <div className="dec">
                                     <Tooltip title="Image Left" placement="top">
                                         <KeyboardArrowLeftOutlinedIcon
-                                        fontSize="large"
+                                        style={{ fontSize: 50 }}
                                         onClick={this.handleDecrementImageIndex(images)}
                                         />
                                     </Tooltip>
@@ -165,7 +165,7 @@ export class PostPage extends Component {
                                     <div className='inc'>
                                     <Tooltip title="Image Right" placement="top">
                                         <KeyboardArrowRightOutlinedIcon
-                                        fontSize="large"
+                                        style={{ fontSize: 50 }}
                                         onClick={this.handleIncrementImageIndex(images)}
                                         />
                                     </Tooltip>

@@ -21,6 +21,7 @@ import { connect } from 'react-redux';
 import { getPosts } from '../redux/actions/dataActions'
 import { getPost, uploadImage } from '../redux/actions/dataActions';
 //COMPONENTS
+// import DeletePost from '../components/DeletePost';
 import Navbar2 from "../components/Navbar2";
 import PostFromParams from "../components/PostFromParams"
 import logo from "../assets/img/planumLogo.jpg";
@@ -29,8 +30,8 @@ import logo from "../assets/img/planumLogo.jpg";
 const styles = {
     editButton: {
         position: "absolute",
-        left: "88%",
-        top: "15%",
+        left: "80%",
+        top: "20%",
         zIndex: 10
     },
 }
@@ -127,13 +128,16 @@ export class PostPage extends Component {
             <Tooltip title="Upload Picture" placement="top">
                 <IconButton
                 onClick={this.handleEditPicture}
-                className={classes.editButton}
+                className="edit-button"
+                style={{position: 'relative'}}
                 >
                 <EditIcon color="primary" />
                 </IconButton>
             </Tooltip>
         ) : null;
-
+        // const deleteButton = authenticated ? (
+        //   <DeletePost className="delete-button" postId={this.props.match.params} />
+        // ) : null;
         return (
             <Container maxWidth="lg">
             <br/><br/>
@@ -179,6 +183,7 @@ export class PostPage extends Component {
                     <Grid item xs={12} sm={6} md={4}>
                         <div className="info-grid">
                         <h2>{name}</h2>
+                        {/* {deleteButton} */}
                         <h4><strong>${price}</strong></h4>
                         <p>Free shipping to the <u>United States</u></p>
                         <div className={classes.boxStyle}>
@@ -189,6 +194,14 @@ export class PostPage extends Component {
                                 </Typography>
                                 </a>
                             </button>
+                            {editPhoto}
+                            <input
+                                type="file"
+                                id="imageInput"
+                                onChange={this.handleImageUpload}
+                                hidden="hidden"
+                                multiple
+                            />
                             <br/>
                             <br/>
                             <br/>
@@ -207,7 +220,8 @@ export class PostPage extends Component {
                         </div>
                     </Grid>
                     <Grid item xs={12} sm={12} md={1}>
-
+                        
+                        
                     </Grid>
                 </Grid>
             </Container>

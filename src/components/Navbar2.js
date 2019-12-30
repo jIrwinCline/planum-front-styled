@@ -29,17 +29,17 @@ export default class Navbar2 extends Component {
                   }
                 }}
               >
-                <li id="nav-item">Jewels</li>
+                <li id="nav-item">Jewelery</li>
               </Link>
               <Link
                 to={{
                   pathname: "/products",
                   state: {
-                    pageCategory: "cleansing"
+                    pageCategory: "crystal"
                   }
                 }}
               >
-                <li id="nav-item">Cleansing</li>
+                <li id="nav-item">Crystals</li>
               </Link>
               <Link to="/retreats">
                 <li id="nav-item">Retreats</li>

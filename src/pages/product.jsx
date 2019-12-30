@@ -55,10 +55,11 @@ export class product extends Component {
             <div className='profile-header'>
             <ProfilePageHeader />
             </div>
-            <hr className={classes.line} />
-            <img className={classes.image} src={logo} alt="main logo" />
+            <Navbar2/>
+            {/* <hr className={classes.line} />
+            <img className={classes.image} src={logo} alt="main logo" /> */}
             <div>
-                <PostPage/>
+                <PostPage {...this.props} />
             </div>
             </>
         )

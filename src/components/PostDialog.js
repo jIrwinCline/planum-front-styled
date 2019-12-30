@@ -201,6 +201,7 @@ class PostDialog extends Component {
   handleOpen = () => {
     this.setState({ open: true });
     this.props.getPost(this.props.postId);
+    
   };
   handleClose = () => {
     this.setState({ open: false });
@@ -241,6 +242,7 @@ class PostDialog extends Component {
     //   UI: { loading },
     //   user: { authenticated }
     // } = this.props;
+    
     const editPhoto = authenticated ? (
       <Tooltip title="Upload Picture" placement="top">
         <IconButton

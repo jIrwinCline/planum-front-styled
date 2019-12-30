@@ -48,7 +48,7 @@ const styles = {
     // }
   },
   media: {
-    paddingTop: "56.25%",
+    paddingTop: "100%",
   },
   content: {
     textAlign: "left"
@@ -93,7 +93,7 @@ export class Post extends Component {
         ) : null;
         return (
           <Card className={classes.card}>
-          <Link  to={`/products/${postId}`}>
+          <Link to={`/products/${postId}`}>
             <CardMedia
               className={classes.media}
               image={images[0]

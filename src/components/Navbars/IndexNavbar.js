@@ -33,13 +33,13 @@ function IndexNavbar(props) {
   React.useEffect(() => {
     const updateNavbarColor = () => {
       if (
-        document.documentElement.scrollTop > 299 ||
-        document.body.scrollTop > 299
+        document.documentElement.scrollTop > 50 ||
+        document.body.scrollTop > 50
       ) {
         setNavbarColor("");
       } else if (
-        document.documentElement.scrollTop < 300 ||
-        document.body.scrollTop < 300
+        document.documentElement.scrollTop < 51 ||
+        document.body.scrollTop < 51
       ) {
         setNavbarColor("navbar-transparent");
       }
@@ -57,16 +57,18 @@ function IndexNavbar(props) {
     <Navbar className={navClass} expand="lg">
       <Container>
         <div className="navbar-translate">
-          <NavbarBrand
-            data-placement="bottom"
-            href="/"
-            target="_blank"
-            title="Return to home"
-          >
-            <h5>
-              <ChangeHistoryIcon /> <strong>P/M</strong>
-            </h5>
-          </NavbarBrand>
+          <Link to='/'>
+            <NavbarBrand
+              data-placement="bottom"
+              href="/"
+              target="_blank"
+              title="Return to home"
+            >
+              <h5>
+                <ChangeHistoryIcon /> <strong>P/M</strong>
+              </h5>
+            </NavbarBrand>
+          </Link>
           {postButton}
           <button
             aria-expanded={navbarCollapse}
@@ -103,15 +105,18 @@ function IndexNavbar(props) {
               </NavItem>
               {/* </div>
               <div className='blog'> */}
-              <NavItem >
+
+              {/* -----------------BLOG BUTTON--------------------------------------------- */}
+              {/* <NavItem >
                   <NavLink
                     target="_blank"
                   >
-                  <Link to='/blog'>
-                    {/*<i className="nc-icon nc-book-bookmark" />*/} <h5  className="nav-items">Blog</h5>
-                </Link>
+                    <Link to='/blog'>
+                      <h5  className="nav-items">Blog</h5>
+                    </Link>
                   </NavLink>
-              </NavItem>
+              </NavItem> */}
+              {/* -------------------------------------------------------------- */}
               {/* </div>
             </div> */}
             <hr/>

@@ -70,8 +70,10 @@ export class products extends Component {
     // );
     return (
       <>
-      <IndexNavbar/>
-      <ProfilePageHeader/>
+        <IndexNavbar/>
+        <div className='profile-header'>
+          <ProfilePageHeader />
+        </div>
         <hr className={classes.line} />
         <img className={classes.image} src={logo} alt="main logo" />
         <Navbar2 />

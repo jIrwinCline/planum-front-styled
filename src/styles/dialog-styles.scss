@@ -241,22 +241,24 @@ h1 {
 	position: "relative";
     margin: "20px auto 20px auto";
 	// width: 100%;
-	max-height: 450px;
+	max-height: 600px;
 	max-width: 100%;
 	padding: 19px;
 	padding-top: 45px;
 }
 .dec{
-	left: 38%;
-	// margin-left: 20px;
+	// left: 38%;
+	margin-left: -120px;
 	position: absolute;
 }
 .inc{
-	right: 38%;
+	// right: 38%;
 	// margin-right: 20px;
-	// margin-left: 20px;
+	margin-left: 85px;
 	position: absolute;
 }
 .imageGrid {
 	min-height: 125px;
+	// margin-left: -300px;
+	position: relative;
 }

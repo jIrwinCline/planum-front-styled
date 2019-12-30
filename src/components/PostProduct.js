@@ -213,7 +213,7 @@ class PostProduct extends Component {
                     lable="Post Product"
                     multiline
                     rows="3"
-                    placeholder="name"
+                    placeholder="Metatron"
                     error={errors.body ? true : false}
                     helperText={errors.body}
                     className={classes.textFields}
@@ -242,7 +242,7 @@ class PostProduct extends Component {
                     lable="Painting"
                     multiline
                     rows="3"
-                    placeholder="Painting"
+                    placeholder="'painting', 'jewelry', or 'crystal'"
                     error={errors.body ? true : false}
                     helperText={errors.body}
                     className={classes.textFields}
@@ -271,10 +271,10 @@ class PostProduct extends Component {
                   <TextField
                     name="info"
                     type="text"
-                    lable="blah blah blah"
+                    lable="info"
                     multiline
                     rows="3"
-                    placeholder="info"
+                    placeholder="info about the product"
                     error={errors.body ? true : false}
                     helperText={errors.body}
                     className={classes.textFields}

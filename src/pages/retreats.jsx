@@ -15,6 +15,7 @@ import { withStyles } from "@material-ui/core/styles";
 
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
+import RetreatPost from "../components/RetreatPost"
 
 const styles = {
   card: {
@@ -89,6 +90,8 @@ export class products extends Component {
               <img src={pic3} alt="paints"/>
             </Grid>
           </Grid>
+          <br/><br/>
+          <RetreatPost/>
           
           </div>
         </div>

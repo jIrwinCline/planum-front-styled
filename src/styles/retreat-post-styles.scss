@@ -1,0 +1,22 @@
+.retreat-post-card {
+    background-color: #fff;
+    border: 1px solid lightgrey;
+    height: 220px;
+    margin-right: 200px;
+    margin-left: 20px;
+    // display: flex;
+}
+
+.retreat-post-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.retreat-post-content {
+    flex: '1 0 auto';
+}
+
+.retreat-post-cover {
+   width: 300px;
+   margin-top: -50px;
+}

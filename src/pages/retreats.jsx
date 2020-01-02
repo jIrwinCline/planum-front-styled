@@ -8,10 +8,14 @@ import { connect } from "react-redux";
 import { getPosts } from "../redux/actions/dataActions";
 import Navbar2 from "../components/Navbar2";
 import logo from "../assets/img/planumLogo.jpg";
+import pic1 from "../assets/img/paints.jpg";
+import pic2 from "../assets/img/paint-shop.jpg";
+import pic3 from "../assets/img/light-painting.jpg";
 import { withStyles } from "@material-ui/core/styles";
 
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
+import RetreatPost from "../components/RetreatPost"
 
 const styles = {
   card: {
@@ -42,6 +46,11 @@ const styles = {
     marginTop: 30,
     marginBottom: 30,
     borderTop: "1px solid lightgrey"
+  },
+  retreatsInfoDiv: {
+    textAlign: 'center', 
+    padding: '20px', 
+    maxWidth: '400px'
   }
 };
 
@@ -53,21 +62,7 @@ export class products extends Component {
   render() {
     const { classes } = this.props;
     const { posts, loading } = this.props.data;
-    // let recentPostsMarkup = !loading ? (
-    //   posts.map(post => {
-    //     if (post.itemCategory == this.props.location.state.pageCategory) {
-    //       console.log("props: ", this.props);
-    //       console.log("category: ", this.props.location.state.pageCategory);
-    //       return (
-    //         <Grid item md={4} sm={6} xs={12}>
-    //           <Post key={post.postId} post={post} />
-    //         </Grid>
-    //       );
-    //     }
-    //   })
-    // ) : (
-    //   <p>...Loading</p>
-    // );
+    
     return (
       <>
         <IndexNavbar />
@@ -77,6 +72,29 @@ export class products extends Component {
         <hr className={classes.line} />
         <img className={classes.image} src={logo} alt="main logo" />
         <Navbar2 />
+        <div className='retreats-info'>
+          <br/>
+          <h2>Artistry Retreats</h2>
+          <br/>
+          <h3>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique, ea laboriosam deleniti ab illum odio iure pariatur sit nobis distinctio a adipisci tenetur veniam rem? Aliquid perferendis eos beatae. Cupiditate.</h3>
+          <br/>
+          <div>
+          <Grid className='img-grid' container>
+            <Grid item sm={12} md={4}>
+              <img src={pic1} alt="paints"/>
+            </Grid>
+            <Grid item sm={12} md={4}>
+              <img src={pic2} alt="paints"/>
+            </Grid>
+            <Grid item sm={12} md={4}>
+              <img src={pic3} alt="paints"/>
+            </Grid>
+          </Grid>
+          <br/><br/>
+          <RetreatPost/>
+          
+          </div>
+        </div>
         {/* <div className={classes.container}>
           <Grid container spacing={12}>
             {recentPostsMarkup}

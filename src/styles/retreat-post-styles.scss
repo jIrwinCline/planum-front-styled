@@ -1,9 +1,10 @@
 .retreat-post-card {
     background-color: #fff;
     border: 1px solid lightgrey;
-    height: 220px;
-    margin-right: 200px;
-    margin-left: 20px;
+    height: 180px;
+    padding: 15px;
+    // margin-right: 200px;
+    // margin-left: 20px;
     // display: flex;
 }
 
@@ -12,11 +13,30 @@
     flex-direction: column;
 }
 
+.retreat-post-card-info div{
+    margin-top: -30px;
+}
+
 .retreat-post-content {
     flex: '1 0 auto';
 }
 
 .retreat-post-cover {
-   width: 300px;
-   margin-top: -50px;
+   width: 235px;
+   margin-top: -20px;
+}
+.card-info-name{
+    // max-width: 300px;
+    margin-top: -10px;
+}
+@media only screen and (max-width: 1360px) {
+	.retreat-post-card {
+        height: 180px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+	.retreat-post-card {
+        height: 400px;
+    }
 }

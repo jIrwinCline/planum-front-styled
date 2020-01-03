@@ -4,6 +4,9 @@ import Grid from "@material-ui/core/Grid";
 import Post from "../components/Post";
 import PropTypes from "prop-types";
 
+import Container from '@material-ui/core/Container';
+
+
 import { connect } from "react-redux";
 import { getPosts } from "../redux/actions/dataActions";
 import Navbar2 from "../components/Navbar2";
@@ -72,29 +75,30 @@ export class products extends Component {
         <hr className={classes.line} />
         <img className={classes.image} src={logo} alt="main logo" />
         <Navbar2 />
-        <div className='retreats-info'>
-          <br/>
-          <h2>Artistry Retreats</h2>
-          <br/>
-          <h3>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique, ea laboriosam deleniti ab illum odio iure pariatur sit nobis distinctio a adipisci tenetur veniam rem? Aliquid perferendis eos beatae. Cupiditate.</h3>
-          <br/>
-          <div>
-          <Grid className='img-grid' container>
-            <Grid item sm={12} md={4}>
-              <img src={pic1} alt="paints"/>
+        <Container maxWidth='xl'>
+          <div className='retreats-info'>
+            <br/>
+            <h3>Artistry Retreats</h3>
+            <br/>
+            <h5>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique, ea laboriosam deleniti ab illum odio iure pariatur sit nobis distinctio a adipisci tenetur veniam rem? Aliquid perferendis eos beatae. Cupiditate.</h5>
+            <br/>
+            <div>
+            <Grid className='img-grid' container>
+              <Grid item sm={12} md={4}>
+                <img src={pic1} alt="paints"/>
+              </Grid>
+              <Grid item sm={12} md={4}>
+                <img src={pic2} alt="paints"/>
+              </Grid>
+              <Grid item sm={12} md={4}>
+                <img src={pic3} alt="paints"/>
+              </Grid>
             </Grid>
-            <Grid item sm={12} md={4}>
-              <img src={pic2} alt="paints"/>
-            </Grid>
-            <Grid item sm={12} md={4}>
-              <img src={pic3} alt="paints"/>
-            </Grid>
-          </Grid>
-          <br/><br/>
-          <RetreatPost/>
-          
+            <br/><br/>
+            <RetreatPost/>
+            </div>
           </div>
-        </div>
+        </Container>
         {/* <div className={classes.container}>
           <Grid container spacing={12}>
             {recentPostsMarkup}

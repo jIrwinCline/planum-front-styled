@@ -1,8 +1,10 @@
 .retreats-info {
     // text-align: center;
     padding: 20px;
+    // margin-right: 130px;
+    // margin-left: 130px;
 }
-.retreats-info h3, .retreats-info h2{
+.retreats-info h3, .retreats-info h5{
     max-width: 800px;
     text-align: center;
     // right: 50%;
@@ -19,7 +21,7 @@
     margin: 0 auto;
 }
 .img-grid div img{
-    max-width: 400px;
+    max-width: 350px;
 }
 @media only screen and (max-width: 1360px) {
 	.img-grid div img{
@@ -27,8 +29,14 @@
     }
 }
 
+@media only screen and (max-width: 1080px) {
+	.img-grid div img{
+        max-width: 270px;
+    }
+}
+
 @media only screen and (max-width: 330px) {
 	.img-grid div img{
-    max-width: 270px;
+    max-width: 249px;
 }
 }

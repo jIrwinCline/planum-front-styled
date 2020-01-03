@@ -37,19 +37,19 @@ export class RetreatPost extends Component {
     render() {
         return (
             <div className='retreat-post-card'>
-                <Grid container>
-                    <Grid item xs={4}>
+                <Grid className='retreat-post-card-info' container>
+                    <Grid className='card-info-name' item xs={12} sm={4}>
                         <h3>retreat 1</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat placeat dignissimos delectus elige</p>
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={12} sm={4}>
                         <p>11/23/2020</p>
-                        <br/>
+                        <hr/>
                         <p>6:00pm</p>
-                        <br/>
+                        <hr/>
                         <p>location</p>
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={12} sm={4}>
                         <img className='retreat-post-cover' src={pic3} alt="paints"/>
                     </Grid>
                 </Grid>

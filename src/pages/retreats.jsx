@@ -8,7 +8,7 @@ import Container from '@material-ui/core/Container';
 
 
 import { connect } from "react-redux";
-import { getPosts } from "../redux/actions/dataActions";
+import { getRetreats } from "../redux/actions/dataActions";
 import Navbar2 from "../components/Navbar2";
 import logo from "../assets/img/planumLogo.jpg";
 import pic1 from "../assets/img/paints.jpg";
@@ -59,13 +59,24 @@ const styles = {
 
 export class products extends Component {
   componentDidMount() {
-    this.props.getPosts();
+    this.props.getRetreats();
   }
 
   render() {
     const { classes } = this.props;
-    const { posts, loading } = this.props.data;
+    const { retreats, loading } = this.props.data;
     
+
+    let retreatsMarkup = !loading ? (
+          retreats.map(retreat => {
+              return (
+                  <RetreatPost key={retreat.retreatId} retreat={retreat}/>
+              );
+          })
+        ) : (
+          <p>...Loading</p>
+        );
+
     return (
       <>
         <IndexNavbar />
@@ -95,7 +106,7 @@ export class products extends Component {
               </Grid>
             </Grid>
             <br/><br/>
-            <RetreatPost/>
+            {retreatsMarkup}
             </div>
           </div>
         </Container>
@@ -118,6 +129,6 @@ const mapStateToProps = state => ({
   data: state.data
 });
 
-export default connect(mapStateToProps, { getPosts })(
+export default connect(mapStateToProps, { getRetreats })(
   withStyles(styles)(products)
 );

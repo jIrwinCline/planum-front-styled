@@ -35,20 +35,37 @@ const classes = {
 
 export class RetreatPost extends Component {
     render() {
+        const {
+            classes,
+            retreat: {
+                name,
+                createdAt,
+                retreatId,
+                link,
+                info,
+                price,
+                date,
+                location,
+                time,
+            },
+            user: {
+                authenticated
+            }
+        } = this.props;
         return (
             <>
             <div className='retreat-post-card'>
                 <Grid className='retreat-post-card-info' container>
                     <Grid className='card-info-name' item xs={12} sm={4}>
-                        <h3>retreat 1</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat placeat dignissimos delectus elige</p>
+                        <h3>{name}</h3>
+                        <p>{info}</p>
                     </Grid>
                     <Grid item xs={12} sm={4}>
-                        <p>11/23/2020</p>
+                        <p>{date}</p>
                         <hr style={{ width: '210px'}}/>
-                        <p>6:00pm</p>
+                        <p>{time}</p>
                         <hr style={{width: '210px'}}/>
-                        <p>location</p>
+                        <p>{location}</p>
                     </Grid>
                     <Grid item xs={12} sm={4}>
                         <img className='retreat-post-cover' src={pic3} alt="paints"/>
@@ -64,8 +81,9 @@ export class RetreatPost extends Component {
 
 
 const mapStateToProps = state => ({
-  data: state.data
+  data: state.data,
+  user: state.user
 });
 
-export default connect(mapStateToProps/*, { getRetreatPost }*/)(RetreatPost)
+export default connect(mapStateToProps)(RetreatPost)
 

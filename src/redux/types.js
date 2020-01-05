@@ -10,7 +10,13 @@ export const CLEAR_ERRORS = "CLEAR_ERRORS";
 export const LOADING_DATA = "LOADING_DATA";
 export const STOP_LOADING_UI = "STOP_LOADING_UI";
 // DATA reducer types
+//posts
 export const SET_POSTS = 'SET_POSTS';
 export const SET_POST = 'SET_POST';
 export const DELETE_POST = "DELETE_POST";
-export const POST_PRODUCT = 'POST_PRODUCT'
+export const POST_PRODUCT = 'POST_PRODUCT';
+// Retreats
+export const SET_RETREATS = 'SET_RETREATS';
+export const SET_RETREAT = 'SET_RETREAT';
+export const DELETE_RETREAT = "DELETE_RETREAT";
+export const POST_RETREAT = 'POST_RETREAT';

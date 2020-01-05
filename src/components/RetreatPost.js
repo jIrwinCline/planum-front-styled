@@ -36,6 +36,7 @@ const classes = {
 export class RetreatPost extends Component {
     render() {
         return (
+            <>
             <div className='retreat-post-card'>
                 <Grid className='retreat-post-card-info' container>
                     <Grid className='card-info-name' item xs={12} sm={4}>
@@ -44,16 +45,19 @@ export class RetreatPost extends Component {
                     </Grid>
                     <Grid item xs={12} sm={4}>
                         <p>11/23/2020</p>
-                        <hr/>
+                        <hr style={{ width: '210px'}}/>
                         <p>6:00pm</p>
-                        <hr/>
+                        <hr style={{width: '210px'}}/>
                         <p>location</p>
                     </Grid>
                     <Grid item xs={12} sm={4}>
                         <img className='retreat-post-cover' src={pic3} alt="paints"/>
                     </Grid>
                 </Grid>
+                
             </div>
+            <br/>
+            </>
         )
     }
 }

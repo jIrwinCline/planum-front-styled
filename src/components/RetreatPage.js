@@ -94,15 +94,20 @@ export class RetreatPage extends Component {
         return (
             <Container maxWidth="lg">
             <br/><br/>
+            <div className="retreat-info-grid">
+            <h2>{name}</h2>
+            </div>
                 <Grid container spacing={3}>
                     <Grid item xs={12} sm={6}>
-                        <div className="info-grid">
-                        <h2>{name}</h2>
+                        <div className="retreat-info-grid">
                         {/* {deleteButton} */}
+                        <h3>Price per person</h3>
                         <h4><strong>${price}</strong></h4>
-                        <p>Free shipping to the <u>United States</u></p>
+                        {/* <p>Free shipping to the <u>United States</u></p>
+                        < */}
+                        <br/>
                         <div className={classes.boxStyle}>
-                            <button className="button button--wayra button--border-thick button--text-upper button--size-s">
+                            <button className="reserve-button button button--wayra button--border-thick button--text-upper button--size-s">
                                 <a href={link} className="button-text">
                                 <Typography color="inherit" variant="h5">
                                     Reserve
@@ -114,21 +119,32 @@ export class RetreatPage extends Component {
                             <br/>
                         </div>
                         <hr/>
-                        <h6>Item details</h6>
-                        <p>{info}</p>
-                        <p><strong>Materials</strong></p>
-                        <p>Metallic leafing, Micron Pen</p>
+                        <h6>Items Included</h6>
+                        <p>Paint, Brushes, Canvas, Paper</p>
+                        {/* <p><strong>Materials</strong></p> */}
+                        {/* <p>Metallic leafing, Micron Pen</p> */}
                         <br/>
-                        <p>Each piece is created intuitively, with the intention of providing grounding and centering in the space for which it lives.</p>
+                        {/* <p>Each piece is created intuitively, with the intention of providing grounding and centering in the space for which it lives.</p> */}
                         <hr/>
-                        <h6>Shipping Details</h6>
-                        <p>Ships from Olympia, Washington</p>
-                        <p>Free shipping costs within United States</p>
+                        <h6>Location Details</h6>
+                        <p>{date}</p>
+                        <p>{time}</p>
+                        <p>{location}</p>
                         </div>
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                        
-                        
+                        <div className='align-vertically'>
+                            <div className="retreat-info-grid">
+                            <h6>Setting & Information</h6>
+                            <p>{info}</p>
+                            <br/>
+                            {/* <hr/> */}
+                            <br/>
+                            <h6>You will take home:</h6>
+                            <p>Finished personal artistic piece</p>
+                            <p></p>
+                            </div>
+                        </div>
                     </Grid>
                 </Grid>
             </Container>

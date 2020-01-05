@@ -61,7 +61,7 @@ export class RetreatPost extends Component {
                 <Grid className='retreat-post-card-info' container>
                     <Grid className='card-info-name' item xs={12} sm={4}>
                         <h3>{name}</h3>
-                        <p>{info}</p>
+                        {/* <p>{info}</p> */}
                     </Grid>
                     <Grid item xs={12} sm={4}>
                         <p>{date}</p>

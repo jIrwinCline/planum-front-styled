@@ -89,9 +89,9 @@ export class products extends Component {
         <Container maxWidth='xl'>
           <div className='retreats-info'>
             <br/>
-            <h3>Artistry Retreats</h3>
+            <h3>Artistry Retreats / Services</h3>
             <br/>
-            <h5>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique, ea laboriosam deleniti ab illum odio iure pariatur sit nobis distinctio a adipisci tenetur veniam rem? Aliquid perferendis eos beatae. Cupiditate.</h5>
+            <h5>Planum Magic offers a variety of services and art retreat events to promote creativity and a healthy mental state. Along with spiritual coaching for personal acheivement manifestations, and a life at it's highest postential.</h5>
             <br/>
             <div>
             <Grid className='img-grid' container>

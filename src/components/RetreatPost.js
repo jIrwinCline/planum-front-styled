@@ -7,6 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
 
+import { Link, Redirect } from "react-router-dom";
+
 import Grid from "@material-ui/core/Grid";
 
 import pic3 from "../assets/img/light-painting.jpg";
@@ -55,6 +57,7 @@ export class RetreatPost extends Component {
         return (
             <>
             <div className='retreat-post-card'>
+            <Link to={`/retreats/${retreatId}`}>
                 <Grid className='retreat-post-card-info' container>
                     <Grid className='card-info-name' item xs={12} sm={4}>
                         <h3>{name}</h3>
@@ -71,7 +74,7 @@ export class RetreatPost extends Component {
                         <img className='retreat-post-cover' src={pic3} alt="paints"/>
                     </Grid>
                 </Grid>
-                
+                </Link>
             </div>
             <br/>
             </>

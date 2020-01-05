@@ -8,7 +8,7 @@ import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
 
 import { connect } from 'react-redux';
-import { getPosts } from '../redux/actions/dataActions'
+import { getPosts } from '../redux/actions/dataActions';
 import Navbar2 from "../components/Navbar2";
 import logo from "../assets/img/planumLogo.jpg";
 import { withStyles } from "@material-ui/core/styles";

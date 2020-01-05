@@ -4,8 +4,11 @@ import Grid from "@material-ui/core/Grid";
 import Post from "../components/Post";
 import PropTypes from "prop-types";
 
+import Container from '@material-ui/core/Container';
+
+
 import { connect } from "react-redux";
-import { getPosts } from "../redux/actions/dataActions";
+import { getRetreats } from "../redux/actions/dataActions";
 import Navbar2 from "../components/Navbar2";
 import logo from "../assets/img/planumLogo.jpg";
 import pic1 from "../assets/img/paints.jpg";
@@ -56,13 +59,24 @@ const styles = {
 
 export class products extends Component {
   componentDidMount() {
-    this.props.getPosts();
+    this.props.getRetreats();
   }
 
   render() {
     const { classes } = this.props;
-    const { posts, loading } = this.props.data;
+    const { retreats, loading } = this.props.data;
     
+
+    let retreatsMarkup = !loading ? (
+          retreats.map(retreat => {
+              return (
+                  <RetreatPost key={retreat.retreatId} retreat={retreat}/>
+              );
+          })
+        ) : (
+          <p>...Loading</p>
+        );
+
     return (
       <>
         <IndexNavbar />
@@ -72,29 +86,30 @@ export class products extends Component {
         <hr className={classes.line} />
         <img className={classes.image} src={logo} alt="main logo" />
         <Navbar2 />
-        <div className='retreats-info'>
-          <br/>
-          <h2>Artistry Retreats</h2>
-          <br/>
-          <h3>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique, ea laboriosam deleniti ab illum odio iure pariatur sit nobis distinctio a adipisci tenetur veniam rem? Aliquid perferendis eos beatae. Cupiditate.</h3>
-          <br/>
-          <div>
-          <Grid className='img-grid' container>
-            <Grid item sm={12} md={4}>
-              <img src={pic1} alt="paints"/>
+        <Container maxWidth='xl'>
+          <div className='retreats-info'>
+            <br/>
+            <h3>Artistry Retreats</h3>
+            <br/>
+            <h5>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique, ea laboriosam deleniti ab illum odio iure pariatur sit nobis distinctio a adipisci tenetur veniam rem? Aliquid perferendis eos beatae. Cupiditate.</h5>
+            <br/>
+            <div>
+            <Grid className='img-grid' container>
+              <Grid item sm={12} md={4}>
+                <img src={pic1} alt="paints"/>
+              </Grid>
+              <Grid item sm={12} md={4}>
+                <img src={pic2} alt="paints"/>
+              </Grid>
+              <Grid item sm={12} md={4}>
+                <img src={pic3} alt="paints"/>
+              </Grid>
             </Grid>
-            <Grid item sm={12} md={4}>
-              <img src={pic2} alt="paints"/>
-            </Grid>
-            <Grid item sm={12} md={4}>
-              <img src={pic3} alt="paints"/>
-            </Grid>
-          </Grid>
-          <br/><br/>
-          <RetreatPost/>
-          
+            <br/><br/>
+            {retreatsMarkup}
+            </div>
           </div>
-        </div>
+        </Container>
         {/* <div className={classes.container}>
           <Grid container spacing={12}>
             {recentPostsMarkup}
@@ -114,6 +129,6 @@ const mapStateToProps = state => ({
   data: state.data
 });
 
-export default connect(mapStateToProps, { getPosts })(
+export default connect(mapStateToProps, { getRetreats })(
   withStyles(styles)(products)
 );

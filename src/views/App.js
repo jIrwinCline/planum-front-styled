@@ -25,6 +25,7 @@ import login from '../pages/login';
 import products from '../pages/products';
 import product from '../pages/product';
 import retreats from "../pages/retreats";
+import retreat from '../pages/retreat';
 import tarot from "../pages/tarot";
 import blogPage from "../pages/blogPage";
 
@@ -82,6 +83,7 @@ function App() {
             <Route exact path="/products" component={products} />
             <Route path="/products/:id" component={product} />
             <Route exact path="/retreats" component={retreats} />
+            <Route path="/retreats/:id" component={retreat} />
             <Route exact path="/tarot" component={tarot} />
             <Route
               path="/artist"

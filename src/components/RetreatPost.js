@@ -7,6 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
 
+import { Link, Redirect } from "react-router-dom";
+
 import Grid from "@material-ui/core/Grid";
 
 import pic3 from "../assets/img/light-painting.jpg";
@@ -35,33 +37,56 @@ const classes = {
 
 export class RetreatPost extends Component {
     render() {
+        const {
+            classes,
+            retreat: {
+                name,
+                createdAt,
+                retreatId,
+                link,
+                info,
+                price,
+                date,
+                location,
+                time,
+            },
+            user: {
+                authenticated
+            }
+        } = this.props;
         return (
+            <>
             <div className='retreat-post-card'>
-                <Grid container>
-                    <Grid item xs={4}>
-                        <h3>retreat 1</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat placeat dignissimos delectus elige</p>
+            <Link to={`/retreats/${retreatId}`}>
+                <Grid className='retreat-post-card-info' container>
+                    <Grid className='card-info-name' item xs={12} sm={4}>
+                        <h3>{name}</h3>
+                        <p>{info}</p>
                     </Grid>
-                    <Grid item xs={4}>
-                        <p>11/23/2020</p>
-                        <br/>
-                        <p>6:00pm</p>
-                        <br/>
-                        <p>location</p>
+                    <Grid item xs={12} sm={4}>
+                        <p>{date}</p>
+                        <hr style={{ width: '210px'}}/>
+                        <p>{time}</p>
+                        <hr style={{width: '210px'}}/>
+                        <p>{location}</p>
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={12} sm={4}>
                         <img className='retreat-post-cover' src={pic3} alt="paints"/>
                     </Grid>
                 </Grid>
+                </Link>
             </div>
+            <br/>
+            </>
         )
     }
 }
 
 
 const mapStateToProps = state => ({
-  data: state.data
+  data: state.data,
+  user: state.user
 });
 
-export default connect(mapStateToProps/*, { getRetreatPost }*/)(RetreatPost)
+export default connect(mapStateToProps)(RetreatPost)
 

@@ -96,6 +96,9 @@ export class RetreatPage extends Component {
             <br/><br/>
             <div className="retreat-info-grid">
             <h2>{name}</h2>
+            <br/>
+            <hr/>
+            <br/>
             </div>
                 <Grid container spacing={3}>
                     <Grid item xs={12} sm={6}>

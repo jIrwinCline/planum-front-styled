@@ -40,6 +40,11 @@
 
 @media only screen and (max-width: 600px) {
 	.retreat-post-card {
-        height: 400px;
+        height: auto;
+
+    }
+    .retreat-post-cover {
+        width: 217px;
+        margin-top: 10px;
     }
 }

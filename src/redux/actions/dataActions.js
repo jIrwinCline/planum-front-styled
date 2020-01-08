@@ -31,7 +31,7 @@ export const getPosts = () => dispatch => {
             })
         })
 }
-// GET SCREAM
+// GET ONE PRODUCT POST
 export const getPost = (postId) => dispatch => {
     dispatch({ type: LOADING_UI});
     axios.get(`/post/${postId}`)

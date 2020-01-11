@@ -44,9 +44,9 @@ export default class Navbar2 extends Component {
               <Link to="/retreats">
                 <li id="nav-item">Retreats</li>
               </Link>
-              <Link to="/tarot">
+              {/* <Link to="/tarot">
                 <li id="nav-item">Tarot Readings</li>
-              </Link>
+              </Link> */}
             </ul>
           </div>
         );

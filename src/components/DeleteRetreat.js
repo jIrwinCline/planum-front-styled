@@ -40,6 +40,10 @@ class DeleteRetreat extends Component {
     return (
       <Fragment>
         <MyButton
+          style={{
+            zIndex: '1',
+            position: 'relative'
+            }}
           tip="Delete Retreat/Service Post"
           onClick={this.handleOpen}
           btnClassName={classes.deleteButton}

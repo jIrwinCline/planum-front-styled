@@ -61,6 +61,10 @@ export class RetreatPost extends Component {
         ) : null;
         return (
             <>
+            <div>
+                
+            </div>
+            {deleteButton}
             <div className='retreat-post-card'>
             <Link to={`/retreats/${retreatId}`}>
                 <Grid className='retreat-post-card-info' container>
@@ -77,7 +81,7 @@ export class RetreatPost extends Component {
                     </Grid>
                     <Grid style={{marginTop: '5px'}} item xs={12} sm={4}>
                         <h5>Host: Laci Adelle</h5>
-                        {deleteButton}
+                        
                         {/* <img className='retreat-post-cover' src={pic3} alt="paints"/> */}
                     </Grid>
                 </Grid>

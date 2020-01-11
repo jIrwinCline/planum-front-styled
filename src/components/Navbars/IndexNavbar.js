@@ -3,6 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 // import MyButton from "../util/MyButton";
 import PostProduct from "../PostProduct";
+import PostRetreat from "../PostRetreat";
 // nodejs library that concatenates strings
 import classnames from "classnames";
 // reactstrap components
@@ -51,7 +52,8 @@ function IndexNavbar(props) {
       window.removeEventListener("scroll", updateNavbarColor);
     };
   });
-  const postButton = authenticated ? <PostProduct /> : null;
+  const postProductButton = authenticated ? <PostProduct /> : null;
+  const postRetreatButton = authenticated ? <PostRetreat /> : null;
   let navClass = `important-nav ${classnames("fixed-top", navbarColor)}`
   return (
     <Navbar className={navClass} expand="lg">
@@ -69,7 +71,8 @@ function IndexNavbar(props) {
               </h5>
             </NavbarBrand>
           </Link>
-          {postButton}
+          {postProductButton}
+          {postRetreatButton}
           <button
             aria-expanded={navbarCollapse}
             className={classnames("navbar-toggler navbar-toggler", {

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import MyButton from '../util/MyButton';
 import PostProduct from './PostProduct';
+import PostRetreat from './PostRetreat';
 
 // MUI stuff
 import AppBar from '@material-ui/core/AppBar';
@@ -21,6 +22,7 @@ export class Navbar extends Component {
               {authenticated ? (
                 <Fragment>
                   <PostProduct/>
+                  <PostRetreat/>
                   <Link to='/products'>
                   <MyButton tip="Home">
                     <HomeIcon color="primary" />

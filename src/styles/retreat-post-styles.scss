@@ -3,6 +3,8 @@
     border: 1px solid lightgrey;
     height: 180px;
     padding: 15px;
+    z-index: 0;
+    position: relative;
     // margin-right: 200px;
     // margin-left: 20px;
     // display: flex;
@@ -16,6 +18,7 @@
 .retreat-post-card-info div{
     margin-top: 5px;
     text-align: center;
+    color: rgb(122, 122, 122);
 }
 
 .retreat-post-content {
@@ -40,6 +43,11 @@
 
 @media only screen and (max-width: 600px) {
 	.retreat-post-card {
-        height: 400px;
+        height: auto;
+
+    }
+    .retreat-post-cover {
+        width: 217px;
+        margin-top: 10px;
     }
 }

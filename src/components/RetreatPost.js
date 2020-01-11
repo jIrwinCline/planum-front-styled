@@ -7,6 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
 
+import DeleteRetreat from './DeleteRetreat';
+
 import { Link, Redirect } from "react-router-dom";
 
 import Grid from "@material-ui/core/Grid";
@@ -54,14 +56,21 @@ export class RetreatPost extends Component {
                 authenticated
             }
         } = this.props;
+        const deleteButton = authenticated ? (
+          <DeleteRetreat className="delete-button" retreatId={retreatId} />
+        ) : null;
         return (
             <>
+            <div>
+                
+            </div>
+            {deleteButton}
             <div className='retreat-post-card'>
             <Link to={`/retreats/${retreatId}`}>
                 <Grid className='retreat-post-card-info' container>
                     <Grid className='card-info-name' item xs={12} sm={4}>
                         <h3>{name}</h3>
-                        <p>{info}</p>
+                        {/* <p>{info}</p> */}
                     </Grid>
                     <Grid item xs={12} sm={4}>
                         <p>{date}</p>
@@ -70,8 +79,10 @@ export class RetreatPost extends Component {
                         <hr style={{width: '210px'}}/>
                         <p>{location}</p>
                     </Grid>
-                    <Grid item xs={12} sm={4}>
-                        <img className='retreat-post-cover' src={pic3} alt="paints"/>
+                    <Grid style={{marginTop: '5px'}} item xs={12} sm={4}>
+                        <h5>Host: Laci Adelle</h5>
+                        
+                        {/* <img className='retreat-post-cover' src={pic3} alt="paints"/> */}
                     </Grid>
                 </Grid>
                 </Link>

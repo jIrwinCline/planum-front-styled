@@ -35,6 +35,12 @@
     padding: 0 13px 0 13px;
 }
 
+.delete-button-div{
+    position: absolute;
+    margin-top: 130px;
+    z-index: 100;
+}
+
 @media only screen and (max-width: 1360px) {
 	.retreat-post-card {
         height: 180px;

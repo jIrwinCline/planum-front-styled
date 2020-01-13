@@ -242,7 +242,7 @@ class PostProduct extends Component {
                     lable="Painting"
                     multiline
                     rows="3"
-                    placeholder="'painting', 'jewelry', or 'crystal'"
+                    placeholder="'painting', 'jewelery', or 'crystal'"
                     error={errors.body ? true : false}
                     helperText={errors.body}
                     className={classes.textFields}

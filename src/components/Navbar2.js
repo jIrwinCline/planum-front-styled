@@ -25,7 +25,7 @@ export default class Navbar2 extends Component {
                 to={{
                   pathname: "/products",
                   state: {
-                    pageCategory: "jewelry"
+                    pageCategory: "jewelery"
                   }
                 }}
               >

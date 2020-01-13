@@ -10,6 +10,10 @@
     // display: flex;
 }
 
+.retreat-post-card:hover {
+    border: 2px solid lightgrey;
+}
+
 .retreat-post-details {
     display: flex;
     flex-direction: column;

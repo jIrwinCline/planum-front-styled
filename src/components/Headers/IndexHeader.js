@@ -22,7 +22,7 @@ function IndexHeader() {
         <div className="content-center">
           <Container>
             <div className="title-brand">
-              <h1 className="presentation-title">Planum Magic</h1>
+              <h1 className="presentation-title">Planum Magic</h1><h2 className='signature-title'>By Laci Adelle</h2>
               {/* <div className="fog-low">
                 <img alt="..." src={require("assets/img/fog-low.png")} />
               </div>
@@ -30,6 +30,7 @@ function IndexHeader() {
                 <img alt="..." src={require("assets/img/fog-low.png")} />
               </div> */}
             </div>
+            <br/><br/>
             <h2 className="presentation-subtitle text-center">
               Artistry, Inspiration, Spirituality
             </h2>

@@ -23,6 +23,15 @@
 .img-grid div img{
     max-width: 350px;
 }
+
+.center {
+    position: relative;
+    margin-left: 50%;
+    // margin-right: 50%;
+    transform: translateX(-10%);
+    text-align: 'center';
+  }
+
 @media only screen and (max-width: 1360px) {
 	.img-grid div img{
         max-width: 300px;
@@ -34,9 +43,13 @@
         max-width: 270px;
     }
 }
-
+@media only screen and (max-width: 600px) {
+	.img-grid {
+        display: inherit !important;
+    }
+}
 @media only screen and (max-width: 330px) {
 	.img-grid div img{
-    max-width: 249px;
-}
+        max-width: 249px;
+    }
 }

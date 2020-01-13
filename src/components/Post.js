@@ -109,7 +109,7 @@ export class Post extends Component {
               >
                 {name}
               </Typography>
-              <br/>
+              
               {/* <Typography
                 className={"MuiTypography--subheading"}
                 variant={"caption"}

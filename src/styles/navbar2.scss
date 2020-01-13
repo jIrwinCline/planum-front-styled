@@ -69,17 +69,31 @@
 }
 
 #nav-item:hover {
-    font-size: 16.5px;
+    font-size: 16px;
     // background-color: lightgrey;
     // padding: 5px;
     // position: static;
     // border-radius: 2px;
 }
+@media only screen and (max-width: 400px) {
+    #nav-item {
+        font-size: 12px !important;
+    }
+    .product-nav-ul li {
+        display: inline-flex;
+        margin: 4px !important;
+        color: black !important;
+        font-weight: 500 !important;
+    }
+    #product-navbar {
+        margin: 31.5px 0px -50px;
+    }/*#product-navbar*/
+}
 
 @media only screen and (max-width: 941px) {
     .product-nav-ul li {
-    display: inline-flex;
-    margin: 7px;
+        display: inline-flex;
+        margin: 7px;
     }
 
     .product-nav-ul li a {

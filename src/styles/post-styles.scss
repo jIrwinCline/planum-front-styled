@@ -5,3 +5,17 @@
 // .delete-button {
 //     position: absolute;
 // }
+.MuiTypography--heading {
+    font-size: 16px !important;
+    color: rgb(97, 97, 97);
+    // padding-bottom: -10px;
+    padding: 3px;
+}
+.MuiTypography-gutterBottom {
+    margin-bottom: 0.6em !important;
+}
+
+.MuiTypography-body1 {
+    color: rgb(97, 97, 97);
+    font-size: 14.5px !important;
+}

@@ -5,6 +5,7 @@ import Post from "../components/Post";
 import PropTypes from "prop-types";
 
 import Container from '@material-ui/core/Container';
+import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 
 
 import { connect } from "react-redux";
@@ -106,6 +107,12 @@ export class products extends Component {
               </Grid>
             </Grid>
             <br/><br/>
+            <h3>Click to Schedule or Attend Events</h3>
+            <br/>
+            <div className='center'>
+              <KeyboardArrowDownIcon fontSize="large" />
+            </div>
+            <br/><br/>
             {retreatsMarkup}
             </div>
           </div>
@@ -121,7 +128,7 @@ export class products extends Component {
 }
 
 products.propTypes = {
-  getPosts: PropTypes.func.isRequired,
+  getRetreat: PropTypes.func.isRequired,
   data: PropTypes.object.isRequired
 };
 

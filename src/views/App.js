@@ -46,6 +46,7 @@ import SectionExamples from "views/index-sections/SectionExamples.js";
 import SectionDownload from "views/index-sections/SectionDownload.js";
 //Router
 import { BrowserRouter as Router, Redirect, Switch, Route } from "react-router-dom";
+import ScrollToTop from 'react-router-scroll-top'
 
 
 
@@ -77,22 +78,24 @@ function App() {
     // <MuiThemeProvider theme={theme}>
     <Provider store={store}>
       <Router>
-        <div className="main">
-          <Switch>
-            <Route exact path="/" component={home} />
-            <Route exact path="/products" component={products} />
-            <Route path="/products/:id" component={product} />
-            <Route exact path="/retreats" component={retreats} />
-            <Route path="/retreats/:id" component={retreat} />
-            <Route exact path="/tarot" component={tarot} />
-            <Route
-              path="/artist"
-              render={props => <ProfilePage {...props} />}
-            />
-            <Route exact path="/blog" component={blogPage} />
-            <Route exact path="/login" component={login} />
-          </Switch>
-        </div>
+        <ScrollToTop>
+          <div className="main">
+            <Switch>
+              <Route exact path="/" component={home} />
+              <Route exact path="/products" component={products} />
+              <Route path="/products/:id" component={product} />
+              <Route exact path="/retreats" component={retreats} />
+              <Route path="/retreats/:id" component={retreat} />
+              <Route exact path="/tarot" component={tarot} />
+              <Route
+                path="/artist"
+                render={props => <ProfilePage {...props} />}
+              />
+              <Route exact path="/blog" component={blogPage} />
+              <Route exact path="/login" component={login} />
+            </Switch>
+          </div>
+        </ScrollToTop>
         <Footer />
       </Router>
     </Provider>

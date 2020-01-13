@@ -103,7 +103,6 @@ export class RetreatPage extends Component {
                 <Grid container spacing={3}>
                     <Grid item xs={12} sm={6}>
                         <div className="retreat-info-grid">
-                        {/* {deleteButton} */}
                         <h3>Price per person</h3>
                         <h4><strong>${price}</strong></h4>
                         {/* <p>Free shipping to the <u>United States</u></p>

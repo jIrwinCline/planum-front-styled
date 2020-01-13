@@ -10,6 +10,10 @@
     // display: flex;
 }
 
+.retreat-post-card:hover {
+    border: 2px solid lightgrey;
+}
+
 .retreat-post-details {
     display: flex;
     flex-direction: column;
@@ -33,6 +37,12 @@
     // max-width: 300px;
     margin-top: -10px;
     padding: 0 13px 0 13px;
+}
+
+.delete-button-div{
+    position: absolute;
+    margin-top: 130px;
+    z-index: 100;
 }
 
 @media only screen and (max-width: 1360px) {

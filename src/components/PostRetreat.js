@@ -281,6 +281,9 @@ class PostRetreat extends Component {
                     onChange={this.handleChange}
                     fullWidth
                   />
+                  <br/>
+                  <br/>
+                  <h5>Date or Days</h5>
                   <TextField
                     name="date"
                     type="date"
@@ -294,6 +297,9 @@ class PostRetreat extends Component {
                     onChange={this.handleChange}
                     fullWidth
                   />
+                  <br/>
+                  <br/>
+                  <h5>Location</h5>
                   <TextField
                     name="location"
                     type="location"
@@ -306,7 +312,10 @@ class PostRetreat extends Component {
                     className={classes.textFields}
                     onChange={this.handleChange}
                     fullWidth
-                  />                  
+                  />
+                  <br/>
+                  <br/>
+                  <h5>Start time or duration</h5>                  
                   <TextField
                     name="time"
                     type="time"

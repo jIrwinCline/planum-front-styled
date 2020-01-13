@@ -68,18 +68,26 @@
     // text-align: center;
 }
 
+#nav-item:hover {
+    font-size: 16.5px;
+    // background-color: lightgrey;
+    // padding: 5px;
+    // position: static;
+    // border-radius: 2px;
+}
+
 @media only screen and (max-width: 941px) {
     .product-nav-ul li {
     display: inline-flex;
     margin: 7px;
-}
+    }
 
-.product-nav-ul li a {
-    display: inline;
-    margin: 0px;
-    color: black !important;
-    font-weight: 500 !important;
-    font-size: 12px;;
-    
-}
+    .product-nav-ul li a {
+        display: inline;
+        margin: 0px;
+        color: black !important;
+        font-weight: 500 !important;
+        font-size: 12px;;
+        
+    }
 }

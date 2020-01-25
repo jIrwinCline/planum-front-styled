@@ -12,16 +12,16 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import DeleteOutline from "@material-ui/icons/DeleteOutline";
-import CircularProgress from '@material-ui/core/CircularProgress';
-import AddIcon from '@material-ui/icons/Add';
+import CircularProgress from "@material-ui/core/CircularProgress";
+import AddIcon from "@material-ui/icons/Add";
 import CloseIcon from "@material-ui/icons/Close";
 
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormControl from "@material-ui/core/FormControl";
+import FormLabel from "@material-ui/core/FormLabel";
 //REDUX
 import { connect } from "react-redux";
 import { postProduct, clearErrors } from "../redux/actions/dataActions";
@@ -66,56 +66,59 @@ const styles = {
     position: "absolute"
   },
   submitButton: {
-      position: "relative",
-      float: 'right',
-      marginTop: 10
+    position: "relative",
+    float: "right",
+    marginTop: 10
   },
   progressSpinner: {
-      position: 'absolute'
+    position: "absolute"
   },
   closeButton: {
-      position: 'absolute',
-      left: '91%',
-      top: '6%'
+    position: "absolute",
+    left: "91%",
+    top: "6%"
   },
   root: {
-    '&:hover': {
-      backgroundColor: 'transparent',
-    },
+    "&:hover": {
+      backgroundColor: "transparent"
+    }
   },
   icon: {
-    borderRadius: '50%',
+    borderRadius: "50%",
     width: 16,
     height: 16,
-    boxShadow: 'inset 0 0 0 1px rgba(16,22,26,.2), inset 0 -1px 0 rgba(16,22,26,.1)',
-    backgroundColor: '#f5f8fa',
-    backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,0))',
-    '$root.Mui-focusVisible &': {
-      outline: '2px auto rgba(19,124,189,.6)',
-      outlineOffset: 2,
+    boxShadow:
+      "inset 0 0 0 1px rgba(16,22,26,.2), inset 0 -1px 0 rgba(16,22,26,.1)",
+    backgroundColor: "#f5f8fa",
+    backgroundImage:
+      "linear-gradient(180deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,0))",
+    "$root.Mui-focusVisible &": {
+      outline: "2px auto rgba(19,124,189,.6)",
+      outlineOffset: 2
     },
-    'input:hover ~ &': {
-      backgroundColor: '#ebf1f5',
+    "input:hover ~ &": {
+      backgroundColor: "#ebf1f5"
     },
-    'input:disabled ~ &': {
-      boxShadow: 'none',
-      background: 'rgba(206,217,224,.5)',
-    },
+    "input:disabled ~ &": {
+      boxShadow: "none",
+      background: "rgba(206,217,224,.5)"
+    }
   },
   checkedIcon: {
-    backgroundColor: '#137cbd',
-    backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))',
-    '&:before': {
-      display: 'block',
+    backgroundColor: "#137cbd",
+    backgroundImage:
+      "linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))",
+    "&:before": {
+      display: "block",
       width: 16,
       height: 16,
-      backgroundImage: 'radial-gradient(#fff,#fff 28%,transparent 32%)',
-      content: '""',
+      backgroundImage: "radial-gradient(#fff,#fff 28%,transparent 32%)",
+      content: '""'
     },
-    'input:hover ~ &': {
-      backgroundColor: '#106ba3',
-    },
-  },
+    "input:hover ~ &": {
+      backgroundColor: "#106ba3"
+    }
+  }
 };
 
 function StyledRadio(props) {
@@ -127,7 +130,9 @@ function StyledRadio(props) {
       disableRipple
       color="default"
       // checkedIcon={<span className={clsx(classes.icon, classes.checkedIcon)} />}
-      checkedIcon={<span className={`${classes.icon} ${classes.checkedIcon}`} />}
+      checkedIcon={
+        <span className={`${classes.icon} ${classes.checkedIcon}`} />
+      }
       icon={<span className={classes.icon} />}
       {...props}
     />
@@ -137,90 +142,93 @@ function StyledRadio(props) {
 // const [selectedValue, setSelectedValue] = React.useState('a');
 
 class PostProduct extends Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
-        open: false,
-        name: '',
-        errors: {}
+      open: false,
+      name: "",
+      errors: {}
     };
     // this.radioChange = this.radioChange.bind(this);
   }
-    UNSAFE_componentWillReceiveProps(nextProps){
-        if (nextProps.UI.errors) {
-            this.setState({
-                errors: nextProps.UI.errors
-            })
-        }
-        if(!nextProps.UI.errors && !nextProps.UI.loading){
-            this.setState({ name: "", open: false, errors: {} });
-        }
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    if (nextProps.UI.errors) {
+      this.setState({
+        errors: nextProps.UI.errors
+      });
     }
-    handleOpen = () => {
-        this.setState({ open: true })
+    if (!nextProps.UI.errors && !nextProps.UI.loading) {
+      this.setState({ name: "", open: false, errors: {} });
     }
-    handleClose = () => {
-        this.setState({ open: false, errors: {} })
-    }
-    handleChange = (event) => {
-        this.setState({ [event.target.name]: event.target.value })
-    }
+  }
+  handleOpen = () => {
+    this.setState({ open: true });
+  };
+  handleClose = () => {
+    this.setState({ open: false, errors: {} });
+  };
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
-    handleSubmit = (event) => {
-        event.preventDefault();
-        this.props.postProduct({
-          name: this.state.name,
-          images: this.state.images,
-          link: this.state.link,
-          info: this.state.info,
-          price: this.state.price,
-          itemCategory: this.state.itemCategory,
-          available: this.state.available,
-          highEnd: this.state.highEnd,
-          featured: this.state.featured
-        });
-    }
-    render(){
-        const { errors } = this.state;
-        const { classes, UI: {loading }} = this.props;
-        return (
-          <Fragment>
-            <MyButton onClick={this.handleOpen} tip="Post a Product">
-              <AddIcon />
-            </MyButton>
-            <Dialog
-              open={this.state.open}
-              onClose={this.handleClose}
-              fullWidth
-              maxWidth="sm"
-            >
-              <MyButton
-                tip="close"
-                onClick={this.handleClose}
-                tipClassName={classes.closeButton}
-              >
-                <CloseIcon />
-              </MyButton>
-              <DialogTitle>Post the new Product</DialogTitle>
-              <DialogContent>
-                <form onSubmit={this.handleSubmit}>
-                <br/>
-                <br/>
-                <h5>Name of Product</h5>
-                  <TextField
-                    name="name"
-                    type="text"
-                    lable="Post Product"
-                    multiline
-                    rows="3"
-                    placeholder="Metatron"
-                    error={errors.body ? true : false}
-                    helperText={errors.body}
-                    className={classes.textFields}
-                    onChange={this.handleChange}
-                    fullWidth
-                  />
-                  {/* <TextField
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.postProduct({
+      name: this.state.name,
+      images: this.state.images,
+      link: this.state.link,
+      info: this.state.info,
+      price: this.state.price,
+      itemCategory: this.state.itemCategory,
+      available: this.state.available,
+      highEnd: this.state.highEnd,
+      featured: this.state.featured
+    });
+  };
+  render() {
+    const { errors } = this.state;
+    const {
+      classes,
+      UI: { loading }
+    } = this.props;
+    return (
+      <Fragment>
+        <MyButton onClick={this.handleOpen} tip="Post a Product">
+          <AddIcon />
+        </MyButton>
+        <Dialog
+          open={this.state.open}
+          onClose={this.handleClose}
+          fullWidth
+          maxWidth="sm"
+        >
+          <MyButton
+            tip="close"
+            onClick={this.handleClose}
+            tipClassName={classes.closeButton}
+          >
+            <CloseIcon />
+          </MyButton>
+          <DialogTitle>Post the new Product</DialogTitle>
+          <DialogContent>
+            <form onSubmit={this.handleSubmit}>
+              <br />
+              <br />
+              <h5>Name of Product</h5>
+              <TextField
+                name="name"
+                type="text"
+                lable="Post Product"
+                multiline
+                rows="3"
+                placeholder="Metatron"
+                error={errors.body ? true : false}
+                helperText={errors.body}
+                className={classes.textFields}
+                onChange={this.handleChange}
+                fullWidth
+              />
+              {/* <TextField
                     name="images"
                     type="text"
                     lable="image"
@@ -233,138 +241,169 @@ class PostProduct extends Component {
                     onChange={this.handleChange}
                     fullWidth
                   /> */}
-                  <br/>
-                  <br/>
-                  <h5>Item Category</h5>
-                  <TextField
-                    name="itemCategory"
-                    type="text"
-                    lable="Painting"
-                    multiline
-                    rows="3"
-                    placeholder="'painting', 'jewelery', or 'crystal'"
-                    error={errors.body ? true : false}
-                    helperText={errors.body}
-                    className={classes.textFields}
-                    onChange={this.handleChange}
-                    fullWidth
-                  />
-                  <br/>
-                  <br/>
-                  <h5>Link to buy</h5>
-                  <TextField
-                    name="link"
-                    type="text"
-                    lable="link"
-                    multiline
-                    rows="3"
-                    placeholder="https://etsy.com"
-                    error={errors.body ? true : false}
-                    helperText={errors.body}
-                    className={classes.textFields}
-                    onChange={this.handleChange}
-                    fullWidth
-                  />
-                  <br/>
-                  <br/>
-                  <h5>Informative Sentence</h5>
-                  <TextField
-                    name="info"
-                    type="text"
-                    lable="info"
-                    multiline
-                    rows="3"
-                    placeholder="info about the product"
-                    error={errors.body ? true : false}
-                    helperText={errors.body}
-                    className={classes.textFields}
-                    onChange={this.handleChange}
-                    fullWidth
-                  />
-                  <br/>
-                  <br/>
-                  <h5>Price</h5>
-                  <TextField
-                    name="price"
-                    type="text"
-                    lable="Price"
-                    multiline
-                    rows="3"
-                    placeholder="75.99"
-                    error={errors.body ? true : false}
-                    helperText={errors.body}
-                    className={classes.textFields}
-                    onChange={this.handleChange}
-                    fullWidth
-                  />
+              <br />
+              <br />
+              <h5>Item Category</h5>
+              <TextField
+                name="itemCategory"
+                type="text"
+                lable="Painting"
+                multiline
+                rows="3"
+                placeholder="'painting', 'jewelery', or 'crystal'"
+                error={errors.body ? true : false}
+                helperText={errors.body}
+                className={classes.textFields}
+                onChange={this.handleChange}
+                fullWidth
+              />
+              <br />
+              <br />
+              <h5>Link to buy</h5>
+              <TextField
+                name="link"
+                type="text"
+                lable="link"
+                multiline
+                rows="3"
+                placeholder="https://etsy.com"
+                error={errors.body ? true : false}
+                helperText={errors.body}
+                className={classes.textFields}
+                onChange={this.handleChange}
+                fullWidth
+              />
+              <br />
+              <br />
+              <h5>Informative Sentence</h5>
+              <TextField
+                name="info"
+                type="text"
+                lable="info"
+                multiline
+                rows="3"
+                placeholder="info about the product"
+                error={errors.body ? true : false}
+                helperText={errors.body}
+                className={classes.textFields}
+                onChange={this.handleChange}
+                fullWidth
+              />
+              <br />
+              <br />
+              <h5>Price</h5>
+              <TextField
+                name="price"
+                type="text"
+                lable="Price"
+                multiline
+                rows="3"
+                placeholder="75.99"
+                error={errors.body ? true : false}
+                helperText={errors.body}
+                className={classes.textFields}
+                onChange={this.handleChange}
+                fullWidth
+              />
 
-                  {/*////////////////////////////////////////*/}
-                  <div className="title">
-                    <h3>Feature this on the front page?</h3>
-                  </div>
-                  
-                  <ul>
-                    <li>
-                      <label>
-                        <input
-                          type="radio"
-                          name="featured"
-                          value="true"
-                          // checked={this.state.size === "small"}
-                          onChange={this.handleChange}
-                        />
-                        Yes
-                      </label>
-                    </li>
-                    
-                    <li>
-                      <label>
-                        <input
-                          type="radio"
-                          name="featured"
-                          value="false"
-                          // checked={this.state.size === "medium"}
-                          onChange={this.handleChange}
-                        />
-                        No
-                      </label>
-                    </li>
-                  </ul>
+              {/*////////////////////////////////////////*/}
+              <div className="title">
+                <h3>Feature this on the front page?</h3>
+              </div>
 
-                  <div className="title">
-                    <h3>Is it a high end product?</h3>
-                  </div>
-                  
-                  <ul>
-                    <li>
-                      <label>
-                        <input
-                          type="radio"
-                          name="highEnd"
-                          value="true"
-                          // checked={this.state.size === "small"}
-                          onChange={this.handleChange}
-                        />
-                        Yes
-                      </label>
-                    </li>
-                    
-                    <li>
-                      <label>
-                        <input
-                          type="radio"
-                          name="highEnd"
-                          value="false"
-                          // checked={this.state.size === "medium"}
-                          onChange={this.handleChange}
-                        />
-                        No
-                      </label>
-                    </li>
-                  </ul>
-                  
+              <ul>
+                <li>
+                  <label>
+                    <input
+                      type="radio"
+                      name="featured"
+                      value="true"
+                      // checked={this.state.size === "small"}
+                      onChange={this.handleChange}
+                    />
+                    Yes
+                  </label>
+                </li>
 
-                  {/* <div className="title">
+                <li>
+                  <label>
+                    <input
+                      type="radio"
+                      name="featured"
+                      value="false"
+                      // checked={this.state.size === "medium"}
+                      onChange={this.handleChange}
+                    />
+                    No
+                  </label>
+                </li>
+              </ul>
+
+              <div className="title">
+                <h3>Is it a high end product?</h3>
+              </div>
+
+              <ul>
+                <li>
+                  <label>
+                    <input
+                      type="radio"
+                      name="highEnd"
+                      value="true"
+                      // checked={this.state.size === "small"}
+                      onChange={this.handleChange}
+                    />
+                    Yes
+                  </label>
+                </li>
+
+                <li>
+                  <label>
+                    <input
+                      type="radio"
+                      name="highEnd"
+                      value="false"
+                      // checked={this.state.size === "medium"}
+                      onChange={this.handleChange}
+                    />
+                    No
+                  </label>
+                </li>
+              </ul>
+
+              <div className="title">
+                <h3>Is the item still available?</h3>
+              </div>
+
+              <ul>
+                <li>
+                  <label>
+                    <input
+                      type="radio"
+                      name="available"
+                      value="true"
+                      // checked={this.state.size === "small"}
+                      onChange={this.handleChange}
+                    />
+                    Yes
+                  </label>
+                </li>
+
+                <li>
+                  <label>
+                    <input
+                      type="radio"
+                      name="available"
+                      value="false"
+                      // checked={this.state.size === "medium"}
+                      onChange={this.handleChange}
+                    />
+                    No
+                  </label>
+                </li>
+              </ul>
+
+              {/* <div className="title">
                     <h3>Is it a high end product?</h3>
                   </div>
                   <div className="form-check-radio">
@@ -396,8 +435,8 @@ class PostProduct extends Component {
                       No <span className="form-check-sign" />
                     </Label>
                   </div> */}
-                  {/*--------------------------------------- */}
-                  {/* <TextField
+              {/*--------------------------------------- */}
+              {/* <TextField
                     name="featured"
                     type="text"
                     lable="featured? true/false"
@@ -423,32 +462,30 @@ class PostProduct extends Component {
                     onChange={this.handleChange}
                     fullWidth
                   /> */}
-                  <br/>
-                  <br/>
-                  
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                    className={classes.submitButton}
-                    disabled={loading}
-                  >
-                    Submit
-                    {loading && (
-                      <CircularProgress
-                        size={30}
-                        className={classes.progressSpinner}
-                      />
-                    )}
-                  </Button>
-                </form>
-              </DialogContent>
-            </Dialog>
-          </Fragment>
-        );
-    }
+              <br />
+              <br />
 
-
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                className={classes.submitButton}
+                disabled={loading}
+              >
+                Submit
+                {loading && (
+                  <CircularProgress
+                    size={30}
+                    className={classes.progressSpinner}
+                  />
+                )}
+              </Button>
+            </form>
+          </DialogContent>
+        </Dialog>
+      </Fragment>
+    );
+  }
 } // END CLASS
 
 PostProduct.propTypes = {
@@ -457,8 +494,10 @@ PostProduct.propTypes = {
   clearErrors: PropTypes.func.isRequired
 };
 
-const mapStateToProps = (state) => ({
-    UI: state.UI
-})
+const mapStateToProps = state => ({
+  UI: state.UI
+});
 
-export default connect(mapStateToProps, { postProduct, clearErrors })(withStyles(styles)(PostProduct))
+export default connect(mapStateToProps, { postProduct, clearErrors })(
+  withStyles(styles)(PostProduct)
+);

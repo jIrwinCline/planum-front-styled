@@ -1,20 +1,22 @@
-import React, { Component } from 'react'
-import { withStyles } from '@material-ui/core/styles';
+import React, { Component } from "react";
+import { withStyles } from "@material-ui/core/styles";
 import { Link, Redirect } from "react-router-dom";
-import PropTypes from 'prop-types'; 
-import DeletePost from './DeletePost';
-import PostDialog from './PostDialog';
+import PropTypes from "prop-types";
+import DeletePost from "./DeletePost";
+import PostDialog from "./PostDialog";
 
-import planumIcon from '../assets/img/planumIcon.jpg'
+import planumIcon from "../assets/img/planumIcon.jpg";
+
+import soldImg from "../assets/img/thumb_overlay_sold.png";
 
 //MUI Stuff
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import Typography from '@material-ui/core/Typography';
+import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 const styles = {
   // card: {
@@ -48,7 +50,7 @@ const styles = {
     // }
   },
   media: {
-    paddingTop: "100%",
+    paddingTop: "100%"
   },
   content: {
     textAlign: "left"
@@ -65,86 +67,95 @@ const styles = {
   },
   priceBox: {
     paddingTop: 10
+  },
+  sold: {
+    position: "absolute",
+    opacity: 0.6
   }
 };
 
 export class Post extends Component {
-    render() {
-        const {
-          classes,
-          post: {
-            name,
-            createdAt,
-            images,
-            itemCategory,
-            postId,
-            link,
-            info,
-            price,
-            available,
-            highEnd
-          },
-          user: {
-            authenticated
-          }
-        } = this.props;
-        const deleteButton = authenticated ? (
-          <DeletePost className="delete-button" postId={postId} />
-        ) : null;
-        return (
-          <Card className={classes.card}>
-          <Link to={`/products/${postId}`}>
-            <CardMedia
-              className={classes.media}
-              image={images[0]
-                // "https://image.freepik.com/free-photo/river-foggy-mountains-landscape_1204-511.jpg"
-              }
-            />
-            </Link>
-            <CardContent className={classes.content}>
-              <Typography
-                className={"MuiTypography--heading"}
-                variant={"h6"}
-                gutterBottom
-              >
-                {name}
-              </Typography>
-              
-              {/* <Typography
+  render() {
+    const {
+      classes,
+      post: {
+        name,
+        createdAt,
+        images,
+        itemCategory,
+        postId,
+        link,
+        info,
+        price,
+        available,
+        highEnd
+      },
+      user: { authenticated }
+    } = this.props;
+    const deleteButton = authenticated ? (
+      <DeletePost className="delete-button" postId={postId} />
+    ) : null;
+    const itemSoldImg =
+      available === "true" ? null : (
+        <img className={classes.sold} src={soldImg} />
+      );
+
+    return (
+      <Card className={classes.card}>
+        <Link to={`/products/${postId}`}>
+          {itemSoldImg}
+          <CardMedia
+            className={classes.media}
+            image={
+              images[0]
+              // "https://image.freepik.com/free-photo/river-foggy-mountains-landscape_1204-511.jpg"
+            }
+          />
+        </Link>
+        <CardContent className={classes.content}>
+          <Typography
+            className={"MuiTypography--heading"}
+            variant={"h6"}
+            gutterBottom
+          >
+            {name}
+          </Typography>
+
+          {/* <Typography
                 className={"MuiTypography--subheading"}
                 variant={"caption"}
               >{info}</Typography> */}
-              {deleteButton}
-              <Divider className={classes.divider} light />
-              <div className={classes.priceBox}>
-              <Typography>{price}$</Typography>
-              </div>
-              {/* <PostDialog postId={postId} /> */}
-            </CardContent>
-          </Card>
-          
-          // <Card className={classes.card}>
-          //   <CardMedia
-          //     image={planumIcon}
-          //     title="Product Image"
-          //     className={classes.image}
-          //   />
-          //   <CardContent className={classes.content}>
-          //     <a href={link}>
-          //       <Typography variant="h5" color="primary">
-          //         {name}
-          //       </Typography>
-          //     </a>
-          //     {deleteButton}
-          //     <Typography variant="body2" color="textSecondary">
-          //       ${price}
-          //     </Typography>
-          //     <Typography variant="body1">{info}</Typography>
-          //     <PostDialog postId={postId} />
-          //   </CardContent>
-          // </Card>
-        );
-    }
+          {deleteButton}
+          <Divider className={classes.divider} light />
+          <div className={classes.priceBox}>
+            <Typography>{price}$</Typography>
+          </div>
+          {/* <PostDialog postId={postId} /> */}
+        </CardContent>
+      </Card>
+
+      // <Card className={classes.card}>
+      //   <CardMedia
+      //     image={planumIcon}
+      //     title="Product Image"
+      //     className={classes.image}
+      //   />
+      //   <CardContent className={classes.content}>
+      //     <a href={link}>
+      //       <Typography variant="h5" color="primary">
+      //         {name}
+      //       </Typography>
+      //     </a>
+      //     {deleteButton}
+      //     <Typography variant="body2" color="textSecondary">
+      //       ${price}
+      //     </Typography>
+      //     <Typography variant="body1">{info}</Typography>
+      //     <PostDialog postId={postId} />
+      //   </CardContent>
+      // </Card>
+    );
+  }
 }
 
 // function Child() {
@@ -162,12 +173,12 @@ export class Post extends Component {
 Post.propTypes = {
   user: PropTypes.object.isRequired,
   post: PropTypes.object.isRequired,
-  classes: PropTypes.object.isRequired,
-}
+  classes: PropTypes.object.isRequired
+};
 
 const mapStateToProps = state => ({
   user: state.user
-})
+});
 
 // const mapActionsToProps = {
 

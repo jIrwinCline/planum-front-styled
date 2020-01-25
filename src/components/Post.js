@@ -37,7 +37,9 @@ const styles = {
   },
   card: {
     maxWidth: 310,
-    minWidth: 170,
+    minWidth: 270,
+    // minHeight: 350,
+
     // maxHeight: 313,
     // minHeight: 323,
     margin: "auto",

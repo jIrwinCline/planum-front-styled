@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import Navbar2 from '../components/Navbar2'
-import logo from '../assets/img/planumLogo.jpg'
+import React, { Component } from "react";
+import Navbar2 from "../components/Navbar2";
+import logo from "../assets/img/planumLogo.jpg";
 import { withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Post from "../components/Post";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 
-import { connect } from 'react-redux';
-import { getPosts } from '../redux/actions/dataActions'
-import PropTypes from 'prop-types';
+import { connect } from "react-redux";
+import { getPosts } from "../redux/actions/dataActions";
+import PropTypes from "prop-types";
 
 import { Button /*, Container, Row, Col*/ } from "reactstrap";
 
@@ -29,6 +29,7 @@ const styles = {
     marginRight: "16%",
     marginLeft: "16%",
     marginTop: -30
+
     // margin: '80px 200px 80px 200px' //fix later!!!!!!!!!!!!!
   },
   image: {
@@ -47,73 +48,74 @@ const styles = {
     borderTop: "1px solid lightgrey"
   },
   center: {
-    textAlign: 'center'
+    textAlign: "center"
+  },
+  postCard: {
+    alignItems: "center",
+    justifyContent: "center",
+    display: "flex"
   }
 };
 
-
 class home extends Component {
-    componentDidMount(){
-        this.props.getPosts();
-    }
+  componentDidMount() {
+    this.props.getPosts();
+  }
 
-    render() {
-        const { classes } = this.props;
-        const { posts, loading } = this.props.data;
-        let recentPostsMarkup = !loading ? (
-          posts.map(post => {
-            if (post.featured) {
-              console.log("props: ", this.props);
-              return (
-                <Grid item md={4} sm={6} xs={12} >
-                  <Post key={post.postId} post={post} />
-                </Grid>
-              );
-            }
-          })
-        ) : (
-          <p>...Loading</p>
-        );
-        return (
-          <>
-            <IndexNavbar />
-            <IndexHeader />
-            <hr className={classes.line} />
-            <img className={classes.image} src={logo} alt="main logo" />
-            <Navbar2 />
-            <SectionCarousel />
-            <div className="center-stuff">
-              <div className="brand-info">
-                <h3>
-                  <strong>
-                    PLANUM MAGIC IS YOUR HUB FOR ALL THINGS SPIRITUAL
-                  </strong>
-                </h3>
-                <h4>
-                  Wall Art, Jewlery, Crystals, Cleansing, Spiritual Retreats,
-                  Tarot Readings, and more
-                </h4>
-              </div>
-            </div>
-            <div className={classes.center}>
-              <br />
-              <h1>Featured Content</h1>
-              <br />
-              <KeyboardArrowDownIcon fontSize="large" />
-            </div>
-            <div className={classes.container}>
-              <Grid container spacing={12}>
-                {recentPostsMarkup}
-              </Grid>
-              <div class="section-split">
-                
-                {/* <div className={classes.center}>
+  render() {
+    const { classes } = this.props;
+    const { posts, loading } = this.props.data;
+    let recentPostsMarkup = !loading ? (
+      posts.map(post => {
+        if (post.featured) {
+          console.log("props: ", this.props);
+          return (
+            <Grid className={classes.postCard} item md={4} sm={6} xs={12}>
+              <Post key={post.postId} post={post} />
+            </Grid>
+          );
+        }
+      })
+    ) : (
+      <p>...Loading</p>
+    );
+    return (
+      <>
+        <IndexNavbar />
+        <IndexHeader />
+        <hr className={classes.line} />
+        <img className={classes.image} src={logo} alt="main logo" />
+        <Navbar2 />
+        <SectionCarousel />
+        <div className="center-stuff">
+          <div className="brand-info">
+            <h3>
+              <strong>PLANUM MAGIC IS YOUR HUB FOR ALL THINGS SPIRITUAL</strong>
+            </h3>
+            <h4>
+              Wall Art, Jewlery, Crystals, Cleansing, Spiritual Retreats, Tarot
+              Readings, and more
+            </h4>
+          </div>
+        </div>
+        <div className={classes.center}>
+          <br />
+          <h1>Featured Content</h1>
+          <br />
+          <KeyboardArrowDownIcon fontSize="large" />
+        </div>
+        <div className={classes.container}>
+          <Grid container spacing={0} alignItems="center" justify="center">
+            {recentPostsMarkup}
+          </Grid>
+          <div class="section-split">
+            {/* <div className={classes.center}>
           
                   <h1>About Planum Magic</h1>
                   <br />
                 </div> */}
-              </div>
-              {/* <p>Meet the Artist!</p>
+          </div>
+          {/* <p>Meet the Artist!</p>
               <Button
                 className="btn-outline-neutral btn-round"
                 color="default"
@@ -122,18 +124,18 @@ class home extends Component {
               >
                 Profile Page
               </Button> */}
-            </div>
-          </>
-        );
-    }
+        </div>
+      </>
+    );
+  }
 }
-        home.propTypes = {
-        getPosts: PropTypes.func.isRequired,
-        data: PropTypes.object.isRequired
-    }
+home.propTypes = {
+  getPosts: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired
+};
 
-    const mapStateToProps = state => ({
-        data: state.data
-    })
+const mapStateToProps = state => ({
+  data: state.data
+});
 
 export default connect(mapStateToProps, { getPosts })(withStyles(styles)(home));

@@ -1,25 +1,46 @@
-.brand-info{
-    background-color: #ebe9e9ec;
-    height: 200px;
-    margin-top: 40px;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    display: table;
-    border-top: 1px solid #d9d9d9;
-    border-bottom: 1px solid #d9d9d9;
-    text-align: center;
-
+.brand-info {
+  background-color: #ebe9e9ec;
+  height: 200px;
+  margin-top: 40px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  display: table;
+  border-top: 1px solid #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
+  text-align: center;
+  padding: 3px;
 }
 
 .center-stuff {
-    align-content: 'center'
-  }
-
-
+  align-content: "center";
+}
 
 .section-split {
-    margin-top: 40px;
-    border-top: 1px solid #d9d9d9;
-    border-bottom: 1px solid #d9d9d9;
+  margin-top: 40px;
+  border-top: 1px solid #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.presentation-title {
+  font-size: 8em;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+  background: #fbf8ec;
+  background: -moz-linear-gradient(top, #ffffff 35%, #4e6773 100%);
+  background: -webkit-linear-gradient(top, #ffffff 35%, #4e6773 100%);
+  background: -ms-linear-gradient(top, #ffffff 35%, #4e6773 100%);
+  background: linear-gradient(to bottom, #ffffff 35%, #4e6773 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.85;
+}
+
+@media only screen and (max-width: 450px) {
+  .presentation-title {
+    padding-bottom: 15px;
+    font-weight: lighter;
+    font-size: 3.6em;
+  }
 }

@@ -74,6 +74,8 @@ export class PostPage extends Component {
       formData.append("image", images[i], images[i].name);
       formDatas.push(formData);
     }
+    console.log(this.props);
+    console.log("post ID:", this.props.match.params.id);
     this.props.uploadImage(formDatas, this.props.postId);
     // this.setState({ open: false });
   };

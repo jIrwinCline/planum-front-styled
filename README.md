@@ -1,87 +1,52 @@
-# Project Title
+# _Planum Magic_
 
-One Paragraph of project description goes here
+## Description
 
-## Getting Started
+ _Online gallery for small art merchandising company based out of Olympia Washington._
+ 
+ **By Jacob Irwin**
+ 
+## Disclosure
+_The web application was used on a temporary basis for the company to feel out interest in their products and have since taken a lot of products down. Some are remaining, but links are not guarenteed to work_
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+## Using the Website
 
-### Prerequisites
+_Users were directed to the site to view various products of interest that they could buy from the artists. There were pages for vewing products, as well as viewing upcoming events_
 
-What things you need to install the software and how to install them
+## Link to GitHub Pages
 
-```
-Give examples
-```
+_Link to hosted site:_
+[Planum Magic Website](https://planum-magic.firebaseapp.com/)
 
-### Installing
+_Link to backend repo_
+[Node Backend Repo](https://github.com/jIrwinCline/planum-magic)
 
-A step by step series of examples that tell you how to get a development env running
+## Known Bugs
 
-Say what the step will be
+There are no known bugs at this time.
 
-```
-Give the example
-```
+## Support and Contact Details
 
-And repeat
+If you'd like to inquire about any details, or have questions about the technology, feel free to contact me.
 
-```
-until finished
-```
+Email:
+- jci@pdx.edu
 
-End with an example of getting some data out of the system or using it for a little demo
+## Technologies Used
 
-## Running the tests
+* JavaScript
+* React.js
+* Redux
+* VS Code
+* Git and Github
+-----------------
+(In the backend)
+* Node
+* Express
+* Firebase
 
-Explain how to run the automated tests for this system
+### License
 
-### Break down into end to end tests
+* _This software is licence under the MIT license._
 
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+Copyright (c) 2020 **_Jacob Irwin_**

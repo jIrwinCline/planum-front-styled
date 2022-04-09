@@ -10,7 +10,7 @@
     "clsx": "^1.0.4",
     "jwt-decode": "^2.2.0",
     "live-server": "^1.2.1",
-    "moment": "2.24.0",
+    "moment": "2.29.2",
     "nouislider": "13.1.5",
     "prop-types": "^15.7.2",
     "react": "16.8.6",
